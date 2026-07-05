@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サービス紹介 - ヒトイク</title>
+  <meta name="description" content="ヒトイクの3つのサービス：研修サービス、人事制度構築、人事管理システムについて詳しくご紹介します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+  <style>
+
+/* ===== デザインシステム ===== */
+:root {
+  --color-mist-white: #F7FAF9;
+  --color-fresh-green: #6FD6B5;
+  --color-calm-cyan: #4CBCC3;
+  --color-deep-blue: #1F5A7A;
+  --color-deep-navy: #0A1A2F;
+  --color-soft-amber: #F4A261;
+  --primary-gradient: linear-gradient(135deg, #F7FAF9 0%, #6FD6B5 35%, #4CBCC3 65%, #1F5A7A 100%);
+  --primary: #6FD6B5;
+  --primary-light: #8FE4CC;
+  --primary-dark: #4CBCC3;
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #EEEEEE;
+  --neutral-300: #E0E0E0;
+  --neutral-600: #757575;
+  --neutral-700: #616161;
+  --neutral-800: #424242;
+  --neutral-900: #0A1A2F;
+  --glass-bg: rgba(247, 250, 249, 0.75);
+  --glass-border: rgba(111, 214, 181, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(10, 26, 47, 0.15);
+  --shadow-sm: 0 4px 12px rgba(10, 26, 47, 0.08);
+  --shadow-md: 0 8px 24px rgba(10, 26, 47, 0.12);
+  --shadow-lg: 0 16px 48px rgba(10, 26, 47, 0.16);
+  --shadow-xl: 0 24px 64px rgba(10, 26, 47, 0.20);
+  --font-display: 'Sora', 'Noto Sans JP', sans-serif;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--neutral-800);
+  background: var(--neutral-50);
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+}
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 2rem); }
+p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container { max-width: 1320px; margin: 0 auto; padding: 0 var(--space-lg); }
+.section { padding: var(--space-3xl) 0; position: relative; }
+.section-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+}
+.glass-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-xs); padding: 1rem 2rem;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+  text-decoration: none; border: none; border-radius: var(--radius-full);
+  cursor: pointer; transition: all var(--transition-base);
+  position: relative; overflow: hidden;
+}
+.btn::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%,-50%); transition: width 0.6s, height 0.6s;
+}
+.btn:hover::before { width: 300px; height: 300px; }
+.btn-primary {
+  background: var(--primary-gradient); color: white;
+  box-shadow: 0 4px 16px rgba(111,214,181,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(111,214,181,0.4); }
+.btn-ghost {
+  background: transparent; color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-ghost:hover { background: var(--primary); color: white; }
+.btn-large { padding: 1.25rem 2.5rem; font-size: 1.125rem; }
+
+/* ===== アニメーション ===== */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
+@keyframes pulse { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.05); opacity:0.9; } }
+@keyframes pulse-soft { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.7; transform:scale(1.15); } }
+@keyframes ripple { from { transform:scale(0); opacity:1; } to { transform:scale(4); opacity:0; } }
+
+.animate-fadeInUp { animation: fadeInUp 0.7s ease-out; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: all var(--transition-smooth); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ===== ナビゲーション ===== */
+.nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: transparent; transition: all var(--transition-base);
+}
+.nav.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-sm);
+}
+.nav__wrapper {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 0; height: 80px;
+}
+.nav__logo {
+  background: rgba(255,255,255,0.95);
+  padding: 0.5rem 1rem; border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  position: relative; z-index: 1001;
+  display: flex; align-items: center;
+  text-decoration: none; height: fit-content;
+}
+.nav__logo-img { height: 50px; width: auto; transition: transform var(--transition-base); }
+.nav__logo-img:hover { transform: scale(1.05); }
+.nav__list { display: flex; align-items: center; gap: var(--space-lg); list-style: none; }
+.nav__link {
+  text-decoration: none; color: white; font-weight: 500; font-size: 0.9375rem;
+  transition: all var(--transition-fast); position: relative;
+}
+.nav.scrolled .nav__link { color: var(--neutral-900); }
+.nav__link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--primary-gradient);
+  transition: width var(--transition-base);
+}
+.nav__link:hover::after, .nav__link.active::after { width: 100%; }
+.nav__link--cta {
+  background: var(--primary-gradient); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: var(--radius-full);
+  font-weight: 600; box-shadow: 0 4px 12px rgba(111,214,181,0.3);
+}
+.nav__link--cta::after { display: none; }
+.nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.nav__toggle span { width: 25px; height: 2px; background: white; transition: all var(--transition-base); }
+.nav.scrolled .nav__toggle span { background: var(--neutral-900); }
+.nav__menu { display: block; }
+
+/* ===== ヒーロー（シネマティック・ビデオ背景） ===== */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: #050e1a;
+}
+.hero__background { position: absolute; inset: 0; }
+
+/* ビデオ本体 */
+.hero__video {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; z-index: 0;
+}
+
+/* ビデオなし時のフォールバック */
+.hero__video-fallback {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(31,90,122,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 15% 80%, rgba(76,188,195,0.2) 0%, transparent 60%),
+    linear-gradient(160deg, #050e1a 0%, #0d2035 50%, #071520 100%);
+}
+
+/* グリッド装飾ライン */
+.hero__grid {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(111,214,181,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111,214,181,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* メインオーバーレイ */
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(160deg,
+    rgba(5,14,26,0.88) 0%,
+    rgba(10,26,47,0.72) 45%,
+    rgba(5,14,26,0.85) 100%);
+}
+.hero__overlay::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 220px;
+  background: linear-gradient(to top, var(--neutral-50) 0%, transparent 100%);
+}
+
+/* 左サイドアクセントライン */
+.hero__sideline {
+  position: absolute; left: 5vw; top: 20%; bottom: 20%;
+  width: 1px; z-index: 3;
+  background: linear-gradient(to bottom, transparent 0%, rgba(111,214,181,0.5) 30%, rgba(76,188,195,0.5) 70%, transparent 100%);
+  transform: scaleY(0); transform-origin: top;
+  animation: sidelineGrow 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes sidelineGrow { to { transform: scaleY(1); } }
+
+/* 粒子 */
+.hero__particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.hero__particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(111,214,181,0.22);
+  animation: particleFloat linear infinite;
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* コンテンツ */
+.hero__container { position: relative; z-index: 4; width: 100%; }
+.hero__content { max-width: 900px; color: white; padding-left: 1rem; }
+
+/* ===== シネマティックテキストアニメーション ===== */
+@keyframes lineReveal {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* バッジ */
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(111,214,181,0.12);
+  border: 1px solid rgba(111,214,181,0.35);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 1.2rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+  color: #6FD6B5; text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.7s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #6FD6B5;
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* タイトル全体 */
+.hero__title {
+  margin-bottom: 0;
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: white;
+}
+
+/* 行マスク：overflow:hidden でスライドアップのクリップ領域 */
+.hero__line-wrap {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.15em;
+}
+/* 2行目はclip-pathを使うのでoverflowはvisibleに */
+.hero__line-wrap--clip {
+  display: block;
+  overflow: visible;
+  padding-bottom: 0.15em;
+}
+
+/* ===== キーフレーム ===== */
+@keyframes lineSlideUp {
+  from { transform: translateY(115%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* 1行目「人が変われば、」— delay 1.2s */
+.hero__title-line1 {
+  display: block;
+  color: #ffffff;
+  text-shadow: 0 3px 28px rgba(0,0,0,0.7);
+  opacity: 0;
+  animation: lineSlideUp 1.2s 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* 2行目「組織は変わる。」— グラデーション文字は廃止、白+緑グローで確実に表示 */
+.hero__title-line2 {
+  display: block;
+  color: #ffffff;
+  text-shadow:
+    0 0 30px rgba(111,214,181,0.9),
+    0 0 60px rgba(76,188,195,0.6),
+    0 2px 20px rgba(0,0,0,0.8);
+  clip-path: inset(0 0 110% 0);
+  transform: translateY(30px);
+  animation: line2Reveal 1.2s 2.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes line2Reveal {
+  from { clip-path: inset(0 0 110% 0); transform: translateY(30px); }
+  to   { clip-path: inset(0 0 -20% 0); transform: translateY(0); }
+}
+
+/* 2行目アンダーライン — delay 3.6s */
+.hero__title-line2-inner { position: relative; display: inline-block; }
+.hero__title-line2-inner::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, #7ee8c8 0%, #4CBCC3 100%);
+  border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  animation: scaleXIn 1.0s 3.6s cubic-bezier(0.4,0,0.2,1) forwards;
+  box-shadow: 0 0 12px rgba(111,214,181,0.5);
+}
+@keyframes scaleXIn { to { transform: scaleX(1); } }
+
+/* ディバイダー — delay 3.2s */
+.hero__divider {
+  width: 0; height: 1px;
+  background: linear-gradient(to right, rgba(111,214,181,0.7), transparent);
+  margin: 2.4rem 0 1.8rem;
+  animation: dividerGrow 1.0s 3.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes dividerGrow { to { width: 130px; } }
+
+/* サブコピー — 3.5s / 4.0s */
+.hero__sub-line { overflow: hidden; display: block; }
+.hero__sub-line span {
+  display: block;
+  opacity: 0;
+  animation: lineSlideUp 1.0s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero__sub-line:nth-child(1) span { animation-delay: 3.5s; }
+.hero__sub-line:nth-child(2) span { animation-delay: 4.0s; }
+
+.hero__description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 2.1;
+  color: rgba(255,255,255,0.78); max-width: 620px;
+  margin-bottom: var(--space-xl);
+  font-weight: 300; letter-spacing: 0.02em;
+}
+
+/* ボタン — delay 4.6s */
+.hero__actions {
+  display: flex; gap: var(--space-md); flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  animation: fadeInUp 1.0s 4.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* スクロールインジケーター（5s後） */
+.hero__scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 0.18em;
+  text-transform: uppercase; z-index: 4;
+  opacity: 0;
+  animation: fadeInUp 1s 5s ease forwards;
+}
+.hero__scroll-line {
+  width: 1px; height: 52px;
+  background: linear-gradient(to bottom, rgba(111,214,181,0.7), transparent);
+  animation: scrollPulse 2.5s 5.5s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 1; transform: scaleY(1); }
+  50%      { opacity: 0.3; transform: scaleY(0.5) translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .hero__content { margin-top: 100px; }
+  .hero__title   { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero__sideline { display: none; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__scroll-hint { display: none; }
+}
+
+/* ===== セクションヘッダー ===== */
+.section__header { text-align: center; margin-bottom: var(--space-3xl); }
+.section__label {
+  display: inline-block; padding: var(--space-xs) var(--space-md);
+  background: linear-gradient(135deg, rgba(111,214,181,0.1) 0%, rgba(111,214,181,0.05) 100%);
+  border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 700;
+  color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+.section__title { margin-bottom: var(--space-md); }
+.section__description { font-size: 1.125rem; color: var(--neutral-600); }
+
+/* ===== ビジョン・ミッション ===== */
+.vm-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); max-width: 800px; margin: 0 auto; }
+.vm-card { padding: var(--space-2xl); text-align: center; border-radius: var(--radius-lg); }
+.vm-card__icon {
+  width: 80px; height: 80px; margin: 0 auto var(--space-lg);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--primary-gradient); border-radius: 50%;
+  font-size: 2rem; color: white;
+}
+.vm-card__title { font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: var(--space-sm); letter-spacing: 0.05em; }
+.vm-card__subtitle { font-size: 1.25rem; font-weight: 600; color: var(--neutral-800); margin-bottom: var(--space-lg); }
+.vm-card__text { font-size: 1.125rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: var(--space-md); font-weight: 500; }
+.vm-card__description { font-size: 0.9375rem; line-height: 1.7; color: var(--neutral-600); }
+
+/* ===== サービスカード ===== */
+.services__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-xl); }
+.service-card {
+  background: white; border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-md); transition: all var(--transition-base); position: relative;
+}
+.service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+.service-card__image { position: relative; height: 240px; overflow: hidden; }
+.service-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+.service-card:hover .service-card__image img { transform: scale(1.1); }
+.service-card__badge {
+  position: absolute; top: var(--space-md); left: var(--space-md);
+  width: 50px; height: 50px; background: var(--glass-bg);
+  backdrop-filter: blur(20px); border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--primary);
+}
+.service-card__content { padding: var(--space-xl); }
+.service-card__title { font-size: 1.5rem; margin-bottom: var(--space-md); }
+.service-card__description { color: var(--neutral-600); margin-bottom: var(--space-lg); line-height: 1.8; }
+.service-card__features { list-style: none; margin-bottom: var(--space-lg); }
+.service-card__features li { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-xs) 0; color: var(--neutral-700); }
+.service-card__features i { color: var(--primary); font-size: 0.875rem; }
+.service-card__link { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--primary); font-weight: 600; text-decoration: none; transition: gap var(--transition-base); }
+.service-card__link:hover { gap: var(--space-sm); }
+
+/* ===== 円グラフ ===== */
+.testimonials { background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%); }
+.satisfaction-section { margin-bottom: var(--space-3xl); background: white; padding: var(--space-2xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+.satisfaction-section__title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--neutral-900); margin-bottom: var(--space-2xl); }
+.pie-charts { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.pie-chart { text-align: center; }
+.pie-chart__header h4 { font-size: 1.25rem; font-weight: 600; color: var(--neutral-900); margin-bottom: 2rem; }
+.pie-chart__wrapper { position: relative; width: 220px; height: 220px; margin: 0 auto 1.5rem; }
+.pie-chart__canvas { width: 100%; height: 100%; }
+.pie-chart__center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+.pie-chart__percentage {
+  font-size: 2.25rem; font-weight: 800;
+  background: var(--primary-gradient); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; margin-bottom: 0.25rem;
+}
+
+/* ===== お客様の声 ===== */
+.testimonials__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: var(--space-xl); max-width: 1200px; margin: 0 auto; }
+.testimonial-card { padding: var(--space-xl); position: relative; transition: all var(--transition-base); }
+.testimonial-card:hover { transform: translateY(-8px); }
+.testimonial-card__image { width: 100%; height: 240px; overflow: hidden; border-radius: var(--radius-lg); margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+.testimonial-card__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-base); }
+.testimonial-card:hover .testimonial-card__image img { transform: scale(1.05); }
+.testimonial-card__title { font-size: 1.25rem; font-weight: 700; color: var(--neutral-900); margin-bottom: var(--space-md); line-height: 1.4; }
+.testimonial-card__content { font-size: 0.9375rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: var(--space-lg); }
+.testimonial-card__author { display: flex; align-items: center; gap: var(--space-md); padding-top: var(--space-md); border-top: 2px solid var(--neutral-200); }
+.testimonial-card__company { font-weight: 600; color: var(--primary); font-size: 1rem; }
+
+/* ===== 特徴カード ===== */
+.features__grid { position: relative; }
+.feature-card { padding: var(--space-xl); text-align: center; position: relative; }
+.feature-card__icon {
+  width: 80px; height: 80px; margin: 0 auto var(--space-lg);
+  background: var(--primary-gradient); border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: white; box-shadow: 0 8px 24px rgba(111,214,181,0.3);
+}
+.feature-card__title { font-size: 1.5rem; margin-bottom: var(--space-md); }
+.feature-card__description { color: var(--neutral-600); line-height: 1.8; }
+
+/* ===== CTA ===== */
+.cta__content { padding: var(--space-3xl); text-align: center; }
+.cta__title { margin-bottom: var(--space-md); }
+.cta__description { font-size: 1.125rem; color: var(--neutral-600); margin-bottom: var(--space-xl); }
+.cta__actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+
+/* ===== グリッド ===== */
+.grid { display: grid; gap: var(--space-lg); }
+.grid-3 { grid-template-columns: repeat(3,1fr); }
+
+/* ===== フッター ===== */
+.footer { background-color: #2C3E50; color: white; padding: 60px 0 30px; }
+.footer__content { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
+.footer__logo { text-decoration: none; display: inline-block; margin-bottom: 16px; background: white; padding: 12px 20px; border-radius: 12px; transition: var(--transition-base); }
+.footer__logo:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(111,214,181,0.3); }
+.footer__logo-img { height: 50px; width: auto; display: block; }
+.footer__description { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.7); }
+.footer__title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+.footer__list { list-style: none; }
+.footer__list li { margin-bottom: 12px; }
+.footer__list a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color var(--transition-base); }
+.footer__list a:hover { color: var(--color-fresh-green); }
+.footer__contact { list-style: none; }
+.footer__contact li { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 14px; }
+.footer__contact i { color: var(--color-fresh-green); font-size: 16px; }
+.footer__contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition-base); }
+.footer__contact a:hover { color: var(--color-fresh-green); }
+.footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; }
+
+/* ===== スクロールバー ===== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--neutral-100); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+::selection { background: var(--primary); color: white; }
+
+/* ===== SP改行制御 ===== */
+.br-sp { display: none; }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 1024px) {
+  .services__grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; gap: var(--space-xl); }
+  .service-card { display: flex; flex-direction: column; }
+  .service-card__image { height: 300px; }
+  .footer__content { grid-template-columns: repeat(2,1fr); gap: 30px; }
+  .footer__section--main { grid-column: 1 / -1; text-align: center; }
+  .footer__logo { margin-left: auto; margin-right: auto; }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .testimonials__grid { grid-template-columns: 1fr; }
+  .pie-charts { grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .pie-chart__wrapper { width: 180px; height: 180px; }
+}
+@media (max-width: 768px) {
+  .br-sp { display: inline; }
+  :root { --space-3xl: 4rem; --space-2xl: 3rem; }
+  .nav { background: var(--glass-bg); backdrop-filter: blur(20px) saturate(180%); box-shadow: var(--shadow-sm); }
+  .nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,26,47,0.6); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: all var(--transition-base); z-index: 998; pointer-events: none; }
+  .nav-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+  .nav__menu { position: fixed !important; top: 0 !important; right: -100% !important; width: 70% !important; max-width: 300px !important; height: 100vh !important; background: white !important; padding: 100px 30px 40px !important; box-shadow: var(--shadow-xl) !important; transition: right 0.3s ease-in-out !important; z-index: 999 !important; overflow-y: auto !important; }
+  .nav__menu.active { right: 0 !important; }
+  body.menu-open { overflow: hidden; position: fixed; width: 100%; }
+  .nav__list { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .nav__link { color: var(--neutral-900); font-size: 1rem; }
+  .nav__toggle { display: flex; position: relative; z-index: 1001; }
+  .nav__toggle span { background: var(--neutral-900); }
+  .services__grid { grid-template-columns: 1fr; gap: var(--space-lg); max-width: 100%; }
+  .service-card__image { height: 250px; }
+  .hero__content { margin-top: 130px; padding-top: 5px; }
+  .hero__title { font-size: 2rem; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .footer__content { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .testimonials__grid { grid-template-columns: 1fr; }
+  .pie-charts { grid-template-columns: 1fr; gap: 2.5rem; }
+  .pie-chart__wrapper { width: 200px; height: 200px; }
+  .vm-grid { grid-template-columns: 1fr; }
+  .cta__content { padding: var(--space-xl); }
+  .satisfaction-section { padding: var(--space-lg); }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 1.25rem; }
+  .nav__wrapper { height: 70px; padding: 0.75rem 0; }
+  .nav__logo { padding: 0.4rem 0.8rem; }
+  .nav__logo-img { height: 38px; }
+  .hero__content { margin-top: 100px !important; }
+  .hero__title { font-size: 1.75rem; line-height: 1.3; }
+  .hero__description { font-size: 1rem; }
+}
+
+
+/* ===== サブページ共通 ===== */
+.page-hero {
+  padding: 160px 0 90px;
+  background: linear-gradient(160deg, #050e1a 0%, #0d2035 55%, #071520 100%);
+  position: relative; overflow: hidden; text-align: center;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(111,214,181,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111,214,181,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.page-hero__label {
+  display: inline-block; color: #6FD6B5;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+  border: 1px solid rgba(111,214,181,0.3); padding: 0.35rem 1rem;
+  border-radius: 999px; margin-bottom: 1.5rem; position: relative; z-index: 1;
+}
+.page-hero__title {
+  font-family: var(--font-display); font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800; color: #fff; margin-bottom: 1rem;
+  letter-spacing: -0.03em; position: relative; z-index: 1;
+}
+.page-hero__desc {
+  font-size: 1.05rem; color: rgba(255,255,255,0.72);
+  line-height: 1.9; max-width: 560px; margin: 0 auto; position: relative; z-index: 1;
+}
+
+/* セクション */
+.section { padding: 80px 0; }
+.section--alt { background: var(--neutral-100); }
+.sec-header { text-align: center; margin-bottom: 3.5rem; }
+.sec-label {
+  display: inline-block; font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary);
+  background: rgba(111,214,181,0.1); border-radius: 999px; padding: 0.35rem 1rem; margin-bottom: 1rem;
+}
+.sec-title {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3.5vw, 3rem);
+  font-weight: 800; color: var(--neutral-900); margin-bottom: 1rem; letter-spacing: -0.03em;
+}
+.sec-desc { font-size: 1rem; color: var(--neutral-600); line-height: 1.9; }
+
+/* サービス詳細セクション */
+.svc-section { padding: 80px 0; border-bottom: 1px solid var(--neutral-200); }
+.svc-section:last-of-type { border-bottom: none; }
+.svc-header { text-align: center; margin-bottom: 3rem; }
+.svc-num {
+  font-size: 5rem; font-weight: 800; line-height: 1;
+  color: rgba(111,214,181,0.15); font-family: var(--font-display);
+  display: block; margin-bottom: -0.5rem;
+}
+.svc-icon {
+  width: 80px; height: 80px; border-radius: 20px; margin: 0 auto 1.25rem;
+  background: var(--primary-gradient); display: flex; align-items: center;
+  justify-content: center; font-size: 2rem; color: white;
+  box-shadow: 0 8px 24px rgba(111,214,181,0.3);
+}
+.svc-title {
+  font-family: var(--font-display); font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 800; color: var(--neutral-900); margin-bottom: 0.5rem;
+}
+.svc-subtitle { font-size: 1.1rem; color: var(--primary); font-weight: 600; }
+.svc-desc { font-size: 1rem; color: var(--neutral-600); line-height: 2; max-width: 800px; margin: 1.5rem auto 2.5rem; text-align: center; }
+
+/* 特徴グリッド */
+.feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.feature-item {
+  background: white; border-radius: var(--radius-lg); padding: 2rem;
+  box-shadow: var(--shadow-sm); transition: all var(--transition-base);
+  border: 1px solid var(--neutral-200);
+}
+.feature-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.feature-item__icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  background: var(--primary-gradient); display: flex; align-items: center;
+  justify-content: center; font-size: 1.25rem; color: white; margin-bottom: 1rem;
+}
+.feature-item__title { font-size: 1.05rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.5rem; }
+.feature-item__desc { font-size: 0.875rem; color: var(--neutral-600); line-height: 1.8; }
+
+/* 画像付き特徴（システム用） */
+.feature-item--img {
+  grid-column: 1 / -1;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;
+}
+.feature-item--img .feature-item__img {
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-md);
+}
+.feature-item--img .feature-item__img img { width: 100%; height: auto; display: block; }
+
+/* アプローチ */
+.approach-box {
+  background: var(--neutral-100); border-radius: var(--radius-xl); padding: 2.5rem; margin-bottom: 2.5rem;
+}
+.approach-box__title { font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--neutral-900); }
+.approach-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.approach-item {
+  background: white; border-radius: var(--radius-lg); padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.approach-item__num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  background: var(--primary-gradient); color: white; font-weight: 700; font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+}
+.approach-item__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: var(--radius-sm);
+  background: var(--primary-gradient); color: white; font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+.approach-item h4 { font-size: 1rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.4rem; }
+.approach-item p { font-size: 0.85rem; color: var(--neutral-600); line-height: 1.7; }
+
+/* プロセス */
+.process-box { margin-top: 2.5rem; }
+.process-box__title { font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 2rem; color: var(--neutral-900); }
+.process-steps { display: flex; align-items: stretch; gap: 0.5rem; }
+.process-step {
+  flex: 1; background: var(--neutral-100); border-radius: var(--radius-lg);
+  padding: 1.5rem 1rem; text-align: center;
+}
+.process-step__badge {
+  display: inline-block; background: var(--primary-gradient); color: white;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+  padding: 0.3rem 0.8rem; border-radius: 999px; margin-bottom: 0.75rem;
+}
+.process-step h4 { font-size: 1rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.4rem; }
+.process-step p { font-size: 0.8rem; color: var(--neutral-600); line-height: 1.7; }
+.process-arrow { color: var(--primary); font-size: 1rem; display: flex; align-items: center; flex-shrink: 0; }
+
+/* CTA */
+.cta-block {
+  background: linear-gradient(135deg, #050e1a 0%, #0d2035 100%);
+  border-radius: var(--radius-xl); padding: 4rem 3rem; text-align: center;
+}
+.cta-block__title {
+  font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800; color: #fff; margin-bottom: 1rem;
+}
+.cta-block__desc { font-size: 1rem; color: rgba(255,255,255,0.7); margin-bottom: 2rem; line-height: 1.9; }
+.cta-block__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* SP */
+@media (max-width: 768px) {
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-item--img { grid-column: auto; grid-template-columns: 1fr; }
+  .approach-grid { grid-template-columns: 1fr; }
+  .process-steps { flex-direction: column; }
+  .process-arrow { transform: rotate(90deg); justify-content: center; }
+  .cta-block { padding: 2.5rem 1.5rem; }
+}
+
+  </style>
+</head>
+<body>
+
+<!-- ナビゲーション（サブページは常にscrolled） -->
+<nav class="nav scrolled" id="nav">
+  <div class="container">
+    <div class="nav__wrapper">
+      <a href="index.html" class="nav__logo">
+        <img src="https://www.genspark.ai/api/files/s/SGOuXb6x" alt="ヒトイク" class="nav__logo-img">
+      </a>
+      <div class="nav__menu" id="navMenu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link">ホーム</a></li>
+          <li><a href="services.html" class="nav__link active">サービス</a></li>
+          <li><a href="about.html" class="nav__link">会社概要</a></li>
+          <li><a href="message.html" class="nav__link">代表挨拶</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank" class="nav__link nav__link--cta">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <button class="nav__toggle" id="navToggle"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+
+<main style="padding-top:80px;">
+
+<!-- ページヒーロー -->
+<section class="page-hero">
+  <div class="container">
+    <span class="page-hero__label">Our Services</span>
+    <h1 class="page-hero__title">サービス紹介</h1>
+    <p class="page-hero__desc">私たちは、研修・人事制度・人事管理システムの3つの柱で、<br>企業の成長を総合的に支援します。</p>
+  </div>
+</section>
+
+
+<!-- ==================== 01 研修 ==================== -->
+<section class="svc-section" id="training">
+  <div class="container">
+    <div class="svc-header reveal">
+      <span class="svc-num">01</span>
+      <div class="svc-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+      <h2 class="svc-title">研修</h2>
+      <p class="svc-subtitle">心理学 × 体験学習で、行動変容を生み出す</p>
+      <p class="svc-desc">私たちの研修サービスは、単なる知識の伝達ではありません。行動心理学に基づいた実践的なアプローチとアクティブラーニングの手法を組み合わせることで、参加者の行動変容を促します。これまでの実績から培ったノウハウで、貴社の課題に合わせたカスタマイズ研修を提供します。</p>
+    </div>
+
+    <!-- 研修メニュー4種 -->
+    <div class="feature-grid reveal">
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-users-cog"></i></div>
+        <h3 class="feature-item__title">新入社員研修</h3>
+        <p class="feature-item__desc">社会人としての基礎力を養い、組織への適応力を高めます。ビジネスマナー、コミュニケーション、プロフェッショナルマインドの醸成まで、トータルでサポートします。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-sitemap"></i></div>
+        <h3 class="feature-item__title">管理職研修</h3>
+        <p class="feature-item__desc">マネジメントスキル、リーダーシップ、チームビルディングなど、管理職に必要な能力を体系的に習得します。部下育成の実践力を強化します。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-chart-line"></i></div>
+        <h3 class="feature-item__title">リーダーシップ研修</h3>
+        <p class="feature-item__desc">次世代リーダーに必要なビジョン構築力、戦略思考、人を動かす力を育成します。組織を牽引する人材を育てます。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-comments"></i></div>
+        <h3 class="feature-item__title">コミュニケーション研修</h3>
+        <p class="feature-item__desc">効果的なコミュニケーションスキルを習得し、チーム内の連携を強化します。傾聴力、伝達力を実践的に学びます。</p>
+      </div>
+    </div>
+
+    <!-- 研修の特徴 -->
+    <div class="approach-box reveal">
+      <h3 class="approach-box__title">研修の特徴</h3>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <div class="approach-item__num">01</div>
+          <h4>行動心理学に基づく設計</h4>
+          <p>科学的根拠に基づいた、行動変容を促すプログラム設計</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">02</div>
+          <h4>アクティブラーニング</h4>
+          <p>体験型・参加型の学習で、実践力を高める</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">03</div>
+          <h4>カスタマイズ対応</h4>
+          <p>企業の課題に合わせた完全オーダーメイド</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__num">04</div>
+          <h4>フォローアップ</h4>
+          <p>研修後の状態確認まで、継続的にサポート</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 02 人事制度構築 ==================== -->
+<section class="svc-section section--alt" id="hr-system">
+  <div class="container">
+    <div class="svc-header reveal">
+      <span class="svc-num">02</span>
+      <div class="svc-icon"><i class="fas fa-cogs"></i></div>
+      <h2 class="svc-title">人事制度構築</h2>
+      <p class="svc-subtitle">企業の成長段階に合わせた、持続可能な人事制度の設計・運用</p>
+      <p class="svc-desc">人事制度は、企業の成長を支える重要な基盤です。しかし、制度を作っただけでは機能しません。企業の成長段階、組織文化、経営戦略に合わせた制度設計と、継続的な運用支援が必要です。私たちは、評価制度、報酬制度、キャリアパスの設計から運用まで、持続可能な人事制度の構築を総合的に支援します。</p>
+    </div>
+
+    <!-- 4メニュー -->
+    <div class="feature-grid reveal">
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-star-half-alt"></i></div>
+        <h3 class="feature-item__title">評価制度設計</h3>
+        <p class="feature-item__desc">公平で納得感のある評価制度を設計します。目標管理制度（MBO）、コンピテンシー評価、360度評価など、企業に最適な評価手法を提案します。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-coins"></i></div>
+        <h3 class="feature-item__title">報酬制度設計</h3>
+        <p class="feature-item__desc">市場競争力のある報酬体系を構築します。基本給、賞与、インセンティブなど、企業の財務状況と人材戦略に合わせた報酬制度を設計します。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-route"></i></div>
+        <h3 class="feature-item__title">キャリアパス設計</h3>
+        <p class="feature-item__desc">社員の成長を促すキャリアパスを明確化します。職種別、等級別のキャリアルートを設計し、社員のモチベーション向上と人材育成を促進します。</p>
+      </div>
+      <div class="feature-item">
+        <div class="feature-item__icon"><i class="fas fa-hands-helping"></i></div>
+        <h3 class="feature-item__title">制度運用支援</h3>
+        <p class="feature-item__desc">制度の定着と継続的な改善を支援します。評価者トレーニング、運用マニュアル作成、定期的な見直しなど、制度が機能し続けるためのサポートを提供します。</p>
+      </div>
+    </div>
+
+    <!-- 構築プロセス -->
+    <div class="process-box reveal">
+      <h3 class="process-box__title">構築プロセス</h3>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="process-step__badge">STEP 1</span>
+          <h4>現状分析</h4>
+          <p>現在の人事制度の課題を洗い出し、企業の状況を把握します</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 2</span>
+          <h4>制度設計</h4>
+          <p>企業の成長段階に合わせた人事制度を設計します</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 3</span>
+          <h4>導入準備</h4>
+          <p>運用マニュアル作成、評価者トレーニングを実施します</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 4</span>
+          <h4>運用・改善</h4>
+          <p>制度運用を支援し、継続的に改善します</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ==================== 03 人事管理システム ==================== -->
+<section class="svc-section" id="hr-management">
+  <div class="container">
+    <div class="svc-header reveal">
+      <span class="svc-num">03</span>
+      <div class="svc-icon"><i class="fas fa-laptop-code"></i></div>
+      <h2 class="svc-title">人事管理システム</h2>
+      <p class="svc-subtitle">現場で本当に使われる人事管理システムの構築</p>
+      <p class="svc-desc">育成が止まる原因は"仕組み"にある。人を育てるための時間と判断を支える、現場で本当に使われる人事管理システムを構築します。勤怠管理からタレントマネジメント、評価システム、サーベイまで企業の成長を支える総合的な人事管理システムを提供します。</p>
+    </div>
+
+    <!-- 4システム（画像付き） -->
+    <div style="display:flex;flex-direction:column;gap:2rem;margin-bottom:2.5rem;" class="reveal">
+
+      <div class="feature-item" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div>
+          <div class="feature-item__icon"><i class="fas fa-clock"></i></div>
+          <h3 class="feature-item__title">勤怠管理システム</h3>
+          <p class="feature-item__desc">出退勤管理、有給管理、シフト管理など、労務管理の効率化を実現します。法改正にも対応した柔軟なシステムで、管理工数を大幅に削減します。</p>
+        </div>
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+          <img src="https://www.genspark.ai/api/files/s/sELC8b7h" alt="勤怠管理システム" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+
+      <div class="feature-item" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+          <img src="https://www.genspark.ai/api/files/s/rrKQ38z4" alt="タレントマネジメントシステム" style="width:100%;height:auto;display:block;">
+        </div>
+        <div>
+          <div class="feature-item__icon"><i class="fas fa-user-check"></i></div>
+          <h3 class="feature-item__title">タレントマネジメントシステム</h3>
+          <p class="feature-item__desc">社員のスキル、キャリア、育成履歴を一元管理。最適な人材配置と育成計画をデータに基づいて実現します。</p>
+        </div>
+      </div>
+
+      <div class="feature-item" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div>
+          <div class="feature-item__icon"><i class="fas fa-chart-bar"></i></div>
+          <h3 class="feature-item__title">評価システム</h3>
+          <p class="feature-item__desc">目標管理、評価プロセス、フィードバックを効率化。公平で透明性の高い評価運用をシステムでサポートします。</p>
+        </div>
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+          <img src="https://www.genspark.ai/api/files/s/DCb7uHEM" alt="評価システム" style="width:100%;height:auto;display:block;">
+        </div>
+      </div>
+
+      <div class="feature-item" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
+        <div style="border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
+          <img src="https://www.genspark.ai/api/files/s/4OH5V8T7" alt="サーベイシステム" style="width:100%;height:auto;display:block;">
+        </div>
+        <div>
+          <div class="feature-item__icon"><i class="fas fa-clipboard-list"></i></div>
+          <h3 class="feature-item__title">サーベイシステム</h3>
+          <p class="feature-item__desc">従業員満足度調査、エンゲージメント調査を実施。組織の課題を可視化し、改善アクションにつなげます。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- システムの特徴 -->
+    <div class="approach-box reveal">
+      <h3 class="approach-box__title">システムの特徴</h3>
+      <div class="approach-grid">
+        <div class="approach-item">
+          <div class="approach-item__icon"><i class="fas fa-mobile-alt"></i></div>
+          <h4>使いやすさ重視</h4>
+          <p>直感的な操作画面で誰でも簡単に使えるシステム設計。スマートフォンからもアクセス可能です。</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__icon"><i class="fas fa-sync-alt"></i></div>
+          <h4>柔軟なカスタマイズ</h4>
+          <p>企業の運用に合わせてシステムをカスタマイズ。成長に応じた機能拡張も可能です。</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__icon"><i class="fas fa-shield-alt"></i></div>
+          <h4>セキュリティ対策</h4>
+          <p>個人情報保護に配慮した高いセキュリティ基準。安心して人事データを管理できます。</p>
+        </div>
+        <div class="approach-item">
+          <div class="approach-item__icon"><i class="fas fa-headset"></i></div>
+          <h4>充実のサポート</h4>
+          <p>導入から運用まで、専任担当者がしっかりサポート。システムトラブルにも迅速に対応します。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 導入プロセス -->
+    <div class="process-box reveal">
+      <h3 class="process-box__title">導入プロセス</h3>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="process-step__badge">STEP 1</span>
+          <h4>要件定義</h4>
+          <p>現状の課題と必要な機能を明確化します</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 2</span>
+          <h4>システム設計</h4>
+          <p>最適なシステムを設計・カスタマイズします</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 3</span>
+          <h4>導入・研修</h4>
+          <p>システム導入と利用者向け研修を実施します</p>
+        </div>
+        <div class="process-arrow"><i class="fas fa-arrow-right"></i></div>
+        <div class="process-step">
+          <span class="process-step__badge">STEP 4</span>
+          <h4>運用サポート</h4>
+          <p>継続的な運用支援とシステム改善を行います</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="cta-block reveal">
+      <h2 class="cta-block__title">まずはお気軽にご相談ください</h2>
+      <p class="cta-block__desc">貴社の課題をヒアリングし、最適なソリューションをご提案いたします。<br>相談は無料です。お気軽にお問い合わせください。</p>
+      <div class="cta-block__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank" class="btn btn-primary btn-large">
+          無料相談を申し込む <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <div class="footer__section footer__section--main">
+        <a href="index.html" class="footer__logo">
+          <img src="https://www.genspark.ai/api/files/s/SGOuXb6x" alt="ヒトイク" class="footer__logo-img">
+        </a>
+        <p class="footer__description">
+          人と組織を育てる。未来をつくる。<br>
+          あたたかく、革新的なアプローチで、<br>
+          企業の成長を支援します。
+        </p>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">サービス</h4>
+        <ul class="footer__list">
+          <li><a href="services.html#training">研修</a></li>
+          <li><a href="services.html#hr-system">人事制度構築</a></li>
+          <li><a href="services.html#hr-management">人事管理システム</a></li>
+        </ul>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">企業情報</h4>
+        <ul class="footer__list">
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank">お問い合わせ</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">お問い合わせ</h4>
+        <ul class="footer__contact">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom"></div>
+  </div>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+const navOverlay = document.createElement('div');
+navOverlay.className = 'nav-overlay';
+document.body.appendChild(navOverlay);
+
+// サブページは常にscrolled
+nav.classList.add('scrolled');
+window.addEventListener('scroll', () => nav.classList.add('scrolled'));
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+}
+navOverlay.addEventListener('click', () => {
+  navMenu.classList.remove('active');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('menu-open');
+});
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    navMenu.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+});
+
+// スクロールアニメーション
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// スムーズスクロール
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 90, behavior: 'smooth' }); }
+  });
+});
+
+// スクロールトップ
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollTopBtn.style.cssText = 'position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,#6FD6B5,#4CBCC3);color:white;border:none;border-radius:50%;font-size:1.25rem;cursor:pointer;box-shadow:0 8px 24px rgba(111,214,181,0.4);opacity:0;transform:scale(0);transition:all 0.3s;z-index:999;';
+document.body.appendChild(scrollTopBtn);
+window.addEventListener('scroll', () => {
+  const show = window.scrollY > 400;
+  scrollTopBtn.style.opacity = show ? '1' : '0';
+  scrollTopBtn.style.transform = show ? 'scale(1)' : 'scale(0)';
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// SP用グリッドをレスポンシブに
+if (window.innerWidth <= 768) {
+  document.querySelectorAll('[style*="grid-template-columns:1fr 1fr"]').forEach(el => {
+    el.style.gridTemplateColumns = '1fr';
+  });
+}
+</script>
+</body>
+</html>
