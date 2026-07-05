@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ヒトイク - UPDATE HUMAN | 人の可能性が、動き出す瞬間を。</title>
+  <meta name="description" content="ヒトイクは、研修・人事制度構築・人事管理システムを通じて、企業の成長を支援します。人の可能性が、動き出す瞬間を創造する人事支援サービス。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+<style>
+/* ===== デザインシステム ===== */
+:root {
+  --color-mist-white: #F7FAF9;
+  --color-fresh-green: #6FD6B5;
+  --color-calm-cyan: #4CBCC3;
+  --color-deep-blue: #1F5A7A;
+  --color-deep-navy: #0A1A2F;
+  --color-soft-amber: #F4A261;
+  --primary-gradient: linear-gradient(135deg, #F7FAF9 0%, #6FD6B5 35%, #4CBCC3 65%, #1F5A7A 100%);
+  --primary: #6FD6B5;
+  --primary-light: #8FE4CC;
+  --primary-dark: #4CBCC3;
+  --neutral-50: #FAFAFA;
+  --neutral-100: #F5F5F5;
+  --neutral-200: #EEEEEE;
+  --neutral-300: #E0E0E0;
+  --neutral-600: #757575;
+  --neutral-700: #616161;
+  --neutral-800: #424242;
+  --neutral-900: #0A1A2F;
+  --glass-bg: rgba(247, 250, 249, 0.75);
+  --glass-border: rgba(111, 214, 181, 0.25);
+  --glass-shadow: 0 8px 32px 0 rgba(10, 26, 47, 0.15);
+  --shadow-sm: 0 4px 12px rgba(10, 26, 47, 0.08);
+  --shadow-md: 0 8px 24px rgba(10, 26, 47, 0.12);
+  --shadow-lg: 0 16px 48px rgba(10, 26, 47, 0.16);
+  --shadow-xl: 0 24px 64px rgba(10, 26, 47, 0.20);
+  --font-display: 'Sora', 'Noto Sans JP', sans-serif;
+  --font-body: 'Inter', 'Noto Sans JP', sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--neutral-800);
+  background: var(--neutral-50);
+  overflow-x: hidden;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+}
+h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; }
+h2 { font-size: clamp(2rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h4 { font-size: clamp(1.25rem, 2.5vw, 2rem); }
+p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.container { max-width: 1320px; margin: 0 auto; padding: 0 var(--space-lg); }
+.section { padding: var(--space-3xl) 0; position: relative; }
+.section-hero { min-height: 100vh; display: flex; align-items: center; position: relative; overflow: hidden; }
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+}
+.glass-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+
+/* ===== ボタン ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: var(--space-xs); padding: 1rem 2rem;
+  font-family: var(--font-body); font-size: 1rem; font-weight: 600;
+  text-decoration: none; border: none; border-radius: var(--radius-full);
+  cursor: pointer; transition: all var(--transition-base);
+  position: relative; overflow: hidden;
+}
+.btn::before {
+  content: ''; position: absolute; top: 50%; left: 50%;
+  width: 0; height: 0; border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  transform: translate(-50%,-50%); transition: width 0.6s, height 0.6s;
+}
+.btn:hover::before { width: 300px; height: 300px; }
+.btn-primary {
+  background: var(--primary-gradient); color: white;
+  box-shadow: 0 4px 16px rgba(111,214,181,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(111,214,181,0.4); }
+.btn-ghost {
+  background: transparent; color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.btn-ghost:hover { background: var(--primary); color: white; }
+.btn-large { padding: 1.25rem 2.5rem; font-size: 1.125rem; }
+
+/* ===== アニメーション ===== */
+@keyframes fadeInUp { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+@keyframes float { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-20px); } }
+@keyframes pulse { 0%,100% { transform:scale(1); opacity:1; } 50% { transform:scale(1.05); opacity:0.9; } }
+@keyframes pulse-soft { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:0.7; transform:scale(1.15); } }
+@keyframes ripple { from { transform:scale(0); opacity:1; } to { transform:scale(4); opacity:0; } }
+
+.animate-fadeInUp { animation: fadeInUp 0.7s ease-out; }
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+.reveal { opacity: 0; transform: translateY(30px); transition: all var(--transition-smooth); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+/* ===== ナビゲーション ===== */
+.nav {
+  position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+  background: transparent; transition: all var(--transition-base);
+}
+.nav.scrolled {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: var(--shadow-sm);
+}
+.nav__wrapper {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 0; height: 80px;
+}
+.nav__logo {
+  background: rgba(255,255,255,0.95);
+  padding: 0.5rem 1rem; border-radius: 50px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  position: relative; z-index: 1001;
+  display: flex; align-items: center;
+  text-decoration: none; height: fit-content;
+}
+.nav__logo-img { height: 50px; width: auto; transition: transform var(--transition-base); }
+.nav__logo-img:hover { transform: scale(1.05); }
+.nav__list { display: flex; align-items: center; gap: var(--space-lg); list-style: none; }
+.nav__link {
+  text-decoration: none; color: white; font-weight: 500; font-size: 0.9375rem;
+  transition: all var(--transition-fast); position: relative;
+}
+.nav.scrolled .nav__link { color: var(--neutral-900); }
+.nav__link::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--primary-gradient);
+  transition: width var(--transition-base);
+}
+.nav__link:hover::after, .nav__link.active::after { width: 100%; }
+.nav__link--cta {
+  background: var(--primary-gradient); color: white !important;
+  padding: 0.6rem 1.4rem; border-radius: var(--radius-full);
+  font-weight: 600; box-shadow: 0 4px 12px rgba(111,214,181,0.3);
+}
+.nav__link--cta::after { display: none; }
+.nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+.nav__toggle span { width: 25px; height: 2px; background: white; transition: all var(--transition-base); }
+.nav.scrolled .nav__toggle span { background: var(--neutral-900); }
+.nav__menu { display: block; }
+
+/* ===== ヒーロー（シネマティック・ビデオ背景） ===== */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex; align-items: center;
+  background: #050e1a;
+}
+.hero__background { position: absolute; inset: 0; }
+
+/* ビデオ本体 */
+.hero__video {
+  position: absolute; top: 50%; left: 50%;
+  min-width: 100%; min-height: 100%;
+  width: auto; height: auto;
+  transform: translate(-50%, -50%);
+  object-fit: cover; z-index: 0;
+}
+
+/* ビデオなし時のフォールバック */
+.hero__video-fallback {
+  position: absolute; inset: 0; z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 65% 40%, rgba(31,90,122,0.6) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 80% at 15% 80%, rgba(76,188,195,0.2) 0%, transparent 60%),
+    linear-gradient(160deg, #050e1a 0%, #0d2035 50%, #071520 100%);
+}
+
+/* グリッド装飾ライン */
+.hero__grid {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(111,214,181,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(111,214,181,0.04) 1px, transparent 1px);
+  background-size: 80px 80px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* メインオーバーレイ */
+.hero__overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(160deg,
+    rgba(5,14,26,0.88) 0%,
+    rgba(10,26,47,0.72) 45%,
+    rgba(5,14,26,0.85) 100%);
+}
+.hero__overlay::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; height: 220px;
+  background: linear-gradient(to top, var(--neutral-50) 0%, transparent 100%);
+}
+
+/* 左サイドアクセントライン */
+.hero__sideline {
+  position: absolute; left: 5vw; top: 20%; bottom: 20%;
+  width: 1px; z-index: 3;
+  background: linear-gradient(to bottom, transparent 0%, rgba(111,214,181,0.5) 30%, rgba(76,188,195,0.5) 70%, transparent 100%);
+  transform: scaleY(0); transform-origin: top;
+  animation: sidelineGrow 1.2s 0.3s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes sidelineGrow { to { transform: scaleY(1); } }
+
+/* 粒子 */
+.hero__particles { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.hero__particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(111,214,181,0.22);
+  animation: particleFloat linear infinite;
+}
+@keyframes particleFloat {
+  0%   { transform: translateY(100vh) scale(0); opacity: 0; }
+  10%  { opacity: 0.8; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+/* コンテンツ */
+.hero__container { position: relative; z-index: 4; width: 100%; }
+.hero__content { max-width: 900px; color: white; padding-left: 1rem; }
+
+/* ===== シネマティックテキストアニメーション ===== */
+@keyframes lineReveal {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes fadeInUp {
+  from { transform: translateY(24px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* バッジ */
+.hero__badge {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: rgba(111,214,181,0.12);
+  border: 1px solid rgba(111,214,181,0.35);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 1.2rem;
+  font-size: 0.75rem; font-weight: 700; letter-spacing: 0.14em;
+  color: #6FD6B5; text-transform: uppercase;
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeInUp 0.7s 0.4s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+.hero__badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #6FD6B5;
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+/* タイトル全体 */
+.hero__title {
+  margin-bottom: 0;
+  font-size: clamp(2.6rem, 5.5vw, 5.2rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  color: white;
+}
+
+/* 行マスク：overflow:hidden でスライドアップのクリップ領域 */
+.hero__line-wrap {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.15em;
+}
+/* 2行目はclip-pathを使うのでoverflowはvisibleに */
+.hero__line-wrap--clip {
+  display: block;
+  overflow: visible;
+  padding-bottom: 0.15em;
+}
+
+/* ===== キーフレーム ===== */
+@keyframes lineSlideUp {
+  from { transform: translateY(115%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* 1行目「人が変われば、」— delay 1.2s */
+.hero__title-line1 {
+  display: block;
+  color: #ffffff;
+  text-shadow: 0 3px 28px rgba(0,0,0,0.7);
+  opacity: 0;
+  animation: lineSlideUp 1.2s 1.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+/* 2行目「組織は変わる。」— グラデーション文字は廃止、白+緑グローで確実に表示 */
+.hero__title-line2 {
+  display: block;
+  color: #ffffff;
+  text-shadow:
+    0 0 30px rgba(111,214,181,0.9),
+    0 0 60px rgba(76,188,195,0.6),
+    0 2px 20px rgba(0,0,0,0.8);
+  clip-path: inset(0 0 110% 0);
+  transform: translateY(30px);
+  animation: line2Reveal 1.2s 2.2s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes line2Reveal {
+  from { clip-path: inset(0 0 110% 0); transform: translateY(30px); }
+  to   { clip-path: inset(0 0 -20% 0); transform: translateY(0); }
+}
+
+/* 2行目アンダーライン — delay 3.6s */
+.hero__title-line2-inner { position: relative; display: inline-block; }
+.hero__title-line2-inner::after {
+  content: '';
+  position: absolute; left: 0; bottom: -6px;
+  width: 100%; height: 3px;
+  background: linear-gradient(90deg, #7ee8c8 0%, #4CBCC3 100%);
+  border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  animation: scaleXIn 1.0s 3.6s cubic-bezier(0.4,0,0.2,1) forwards;
+  box-shadow: 0 0 12px rgba(111,214,181,0.5);
+}
+@keyframes scaleXIn { to { transform: scaleX(1); } }
+
+/* ディバイダー — delay 3.2s */
+.hero__divider {
+  width: 0; height: 1px;
+  background: linear-gradient(to right, rgba(111,214,181,0.7), transparent);
+  margin: 2.4rem 0 1.8rem;
+  animation: dividerGrow 1.0s 3.2s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes dividerGrow { to { width: 130px; } }
+
+/* サブコピー — 3.5s / 4.0s */
+.hero__sub-line { overflow: hidden; display: block; }
+.hero__sub-line span {
+  display: block;
+  opacity: 0;
+  animation: lineSlideUp 1.0s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+.hero__sub-line:nth-child(1) span { animation-delay: 3.5s; }
+.hero__sub-line:nth-child(2) span { animation-delay: 4.0s; }
+
+.hero__description {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem); line-height: 2.1;
+  color: rgba(255,255,255,0.78); max-width: 620px;
+  margin-bottom: var(--space-xl);
+  font-weight: 300; letter-spacing: 0.02em;
+}
+
+/* ボタン — delay 4.6s */
+.hero__actions {
+  display: flex; gap: var(--space-md); flex-wrap: wrap;
+  margin-bottom: var(--space-2xl);
+  opacity: 0;
+  animation: fadeInUp 1.0s 4.6s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+
+/* スクロールインジケーター（5s後） */
+.hero__scroll-hint {
+  position: absolute; bottom: 2.5rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.6rem;
+  color: rgba(255,255,255,0.4); font-size: 0.65rem; letter-spacing: 0.18em;
+  text-transform: uppercase; z-index: 4;
+  opacity: 0;
+  animation: fadeInUp 1s 5s ease forwards;
+}
+.hero__scroll-line {
+  width: 1px; height: 52px;
+  background: linear-gradient(to bottom, rgba(111,214,181,0.7), transparent);
+  animation: scrollPulse 2.5s 5.5s ease-in-out infinite;
+}
+@keyframes scrollPulse {
+  0%,100% { opacity: 1; transform: scaleY(1); }
+  50%      { opacity: 0.3; transform: scaleY(0.5) translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .hero__content { margin-top: 100px; }
+  .hero__title   { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero__sideline { display: none; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .hero__scroll-hint { display: none; }
+}
+
+/* ===== セクションヘッダー ===== */
+.section__header { text-align: center; margin-bottom: var(--space-3xl); }
+.section__label {
+  display: inline-block; padding: var(--space-xs) var(--space-md);
+  background: linear-gradient(135deg, rgba(111,214,181,0.1) 0%, rgba(111,214,181,0.05) 100%);
+  border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 700;
+  color: var(--primary); letter-spacing: 0.05em; text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
+.section__title { margin-bottom: var(--space-md); }
+.section__description { font-size: 1.125rem; color: var(--neutral-600); }
+
+/* ===== ビジョン・ミッション ===== */
+.vm-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-2xl); max-width: 800px; margin: 0 auto; }
+.vm-card { padding: var(--space-2xl); text-align: center; border-radius: var(--radius-lg); }
+.vm-card__icon {
+  width: 80px; height: 80px; margin: 0 auto var(--space-lg);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--primary-gradient); border-radius: 50%;
+  font-size: 2rem; color: white;
+}
+.vm-card__title { font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: var(--space-sm); letter-spacing: 0.05em; }
+.vm-card__subtitle { font-size: 1.25rem; font-weight: 600; color: var(--neutral-800); margin-bottom: var(--space-lg); }
+.vm-card__text { font-size: 1.125rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: var(--space-md); font-weight: 500; }
+.vm-card__description { font-size: 0.9375rem; line-height: 1.7; color: var(--neutral-600); }
+
+/* ===== サービスカード ===== */
+.services__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-xl); }
+.service-card {
+  background: white; border-radius: var(--radius-xl); overflow: hidden;
+  box-shadow: var(--shadow-md); transition: all var(--transition-base); position: relative;
+}
+.service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-xl); }
+.service-card__image { position: relative; height: 240px; overflow: hidden; }
+.service-card__image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--transition-slow); }
+.service-card:hover .service-card__image img { transform: scale(1.1); }
+.service-card__badge {
+  position: absolute; top: var(--space-md); left: var(--space-md);
+  width: 50px; height: 50px; background: var(--glass-bg);
+  backdrop-filter: blur(20px); border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 1.25rem; font-weight: 800; color: var(--primary);
+}
+.service-card__content { padding: var(--space-xl); }
+.service-card__title { font-size: 1.5rem; margin-bottom: var(--space-md); }
+.service-card__description { color: var(--neutral-600); margin-bottom: var(--space-lg); line-height: 1.8; }
+.service-card__features { list-style: none; margin-bottom: var(--space-lg); }
+.service-card__features li { display: flex; align-items: center; gap: var(--space-sm); padding: var(--space-xs) 0; color: var(--neutral-700); }
+.service-card__features i { color: var(--primary); font-size: 0.875rem; }
+.service-card__link { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--primary); font-weight: 600; text-decoration: none; transition: gap var(--transition-base); }
+.service-card__link:hover { gap: var(--space-sm); }
+
+/* ===== 円グラフ ===== */
+.testimonials { background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%); }
+.satisfaction-section { margin-bottom: var(--space-3xl); background: white; padding: var(--space-2xl); border-radius: var(--radius-xl); box-shadow: var(--shadow-md); }
+.satisfaction-section__title { font-size: 2rem; font-weight: 700; text-align: center; color: var(--neutral-900); margin-bottom: var(--space-2xl); }
+.pie-charts { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+.pie-chart { text-align: center; }
+.pie-chart__header h4 { font-size: 1.25rem; font-weight: 600; color: var(--neutral-900); margin-bottom: 2rem; }
+.pie-chart__wrapper { position: relative; width: 220px; height: 220px; margin: 0 auto 1.5rem; }
+.pie-chart__canvas { width: 100%; height: 100%; }
+.pie-chart__center { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); text-align: center; }
+.pie-chart__percentage {
+  font-size: 2.25rem; font-weight: 800;
+  background: var(--primary-gradient); -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; margin-bottom: 0.25rem;
+}
+
+/* ===== お客様の声 ===== */
+.testimonials__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: var(--space-xl); max-width: 1200px; margin: 0 auto; }
+.testimonial-card { padding: var(--space-xl); position: relative; transition: all var(--transition-base); }
+.testimonial-card:hover { transform: translateY(-8px); }
+.testimonial-card__image { width: 100%; height: 240px; overflow: hidden; border-radius: var(--radius-lg); margin-bottom: var(--space-lg); box-shadow: var(--shadow-sm); }
+.testimonial-card__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform var(--transition-base); }
+.testimonial-card:hover .testimonial-card__image img { transform: scale(1.05); }
+.testimonial-card__title { font-size: 1.25rem; font-weight: 700; color: var(--neutral-900); margin-bottom: var(--space-md); line-height: 1.4; }
+.testimonial-card__content { font-size: 0.9375rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: var(--space-lg); }
+.testimonial-card__author { display: flex; align-items: center; gap: var(--space-md); padding-top: var(--space-md); border-top: 2px solid var(--neutral-200); }
+.testimonial-card__company { font-weight: 600; color: var(--primary); font-size: 1rem; }
+
+/* ===== 特徴カード ===== */
+.features__grid { position: relative; }
+.feature-card { padding: var(--space-xl); text-align: center; position: relative; }
+.feature-card__icon {
+  width: 80px; height: 80px; margin: 0 auto var(--space-lg);
+  background: var(--primary-gradient); border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; color: white; box-shadow: 0 8px 24px rgba(111,214,181,0.3);
+}
+.feature-card__title { font-size: 1.5rem; margin-bottom: var(--space-md); }
+.feature-card__description { color: var(--neutral-600); line-height: 1.8; }
+
+/* ===== CTA ===== */
+.cta__content { padding: var(--space-3xl); text-align: center; }
+.cta__title { margin-bottom: var(--space-md); }
+.cta__description { font-size: 1.125rem; color: var(--neutral-600); margin-bottom: var(--space-xl); }
+.cta__actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+
+/* ===== グリッド ===== */
+.grid { display: grid; gap: var(--space-lg); }
+.grid-3 { grid-template-columns: repeat(3,1fr); }
+
+/* ===== フッター ===== */
+.footer { background-color: #2C3E50; color: white; padding: 60px 0 30px; }
+.footer__content { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 40px; margin-bottom: 40px; }
+.footer__logo { text-decoration: none; display: inline-block; margin-bottom: 16px; background: white; padding: 12px 20px; border-radius: 12px; transition: var(--transition-base); }
+.footer__logo:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(111,214,181,0.3); }
+.footer__logo-img { height: 50px; width: auto; display: block; }
+.footer__description { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,0.7); }
+.footer__title { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: white; }
+.footer__list { list-style: none; }
+.footer__list li { margin-bottom: 12px; }
+.footer__list a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 14px; transition: color var(--transition-base); }
+.footer__list a:hover { color: var(--color-fresh-green); }
+.footer__contact { list-style: none; }
+.footer__contact li { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; font-size: 14px; }
+.footer__contact i { color: var(--color-fresh-green); font-size: 16px; }
+.footer__contact a { color: rgba(255,255,255,0.7); text-decoration: none; transition: color var(--transition-base); }
+.footer__contact a:hover { color: var(--color-fresh-green); }
+.footer__bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; }
+
+/* ===== スクロールバー ===== */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--neutral-100); }
+::-webkit-scrollbar-thumb { background: var(--primary); border-radius: var(--radius-full); }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-dark); }
+::selection { background: var(--primary); color: white; }
+
+/* ===== SP改行制御 ===== */
+.br-sp { display: none; }
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 1024px) {
+  .services__grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; gap: var(--space-xl); }
+  .service-card { display: flex; flex-direction: column; }
+  .service-card__image { height: 300px; }
+  .footer__content { grid-template-columns: repeat(2,1fr); gap: 30px; }
+  .footer__section--main { grid-column: 1 / -1; text-align: center; }
+  .footer__logo { margin-left: auto; margin-right: auto; }
+  .grid-3 { grid-template-columns: repeat(2,1fr); }
+  .testimonials__grid { grid-template-columns: 1fr; }
+  .pie-charts { grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .pie-chart__wrapper { width: 180px; height: 180px; }
+}
+@media (max-width: 768px) {
+  .br-sp { display: inline; }
+  :root { --space-3xl: 4rem; --space-2xl: 3rem; }
+  .nav { background: var(--glass-bg); backdrop-filter: blur(20px) saturate(180%); box-shadow: var(--shadow-sm); }
+  .nav-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(10,26,47,0.6); backdrop-filter: blur(4px); opacity: 0; visibility: hidden; transition: all var(--transition-base); z-index: 998; pointer-events: none; }
+  .nav-overlay.active { opacity: 1; visibility: visible; pointer-events: auto; }
+  .nav__menu { position: fixed !important; top: 0 !important; right: -100% !important; width: 70% !important; max-width: 300px !important; height: 100vh !important; background: white !important; padding: 100px 30px 40px !important; box-shadow: var(--shadow-xl) !important; transition: right 0.3s ease-in-out !important; z-index: 999 !important; overflow-y: auto !important; }
+  .nav__menu.active { right: 0 !important; }
+  body.menu-open { overflow: hidden; position: fixed; width: 100%; }
+  .nav__list { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .nav__link { color: var(--neutral-900); font-size: 1rem; }
+  .nav__toggle { display: flex; position: relative; z-index: 1001; }
+  .nav__toggle span { background: var(--neutral-900); }
+  .services__grid { grid-template-columns: 1fr; gap: var(--space-lg); max-width: 100%; }
+  .service-card__image { height: 250px; }
+  .hero__content { margin-top: 130px; padding-top: 5px; }
+  .hero__title { font-size: 2rem; }
+  .hero__actions { flex-direction: column; }
+  .hero__actions .btn { width: 100%; justify-content: center; }
+  .footer__content { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .testimonials__grid { grid-template-columns: 1fr; }
+  .pie-charts { grid-template-columns: 1fr; gap: 2.5rem; }
+  .pie-chart__wrapper { width: 200px; height: 200px; }
+  .vm-grid { grid-template-columns: 1fr; }
+  .cta__content { padding: var(--space-xl); }
+  .satisfaction-section { padding: var(--space-lg); }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 1.25rem; }
+  .nav__wrapper { height: 70px; padding: 0.75rem 0; }
+  .nav__logo { padding: 0.4rem 0.8rem; }
+  .nav__logo-img { height: 38px; }
+  .hero__content { margin-top: 100px !important; }
+  .hero__title { font-size: 1.75rem; line-height: 1.3; }
+  .hero__description { font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ナビゲーション -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <div class="nav__wrapper">
+      <a href="index.html" class="nav__logo">
+        <img src="https://www.genspark.ai/api/files/s/SGOuXb6x" alt="ヒトイク" class="nav__logo-img">
+      </a>
+      <div class="nav__menu" id="navMenu">
+        <ul class="nav__list">
+          <li><a href="index.html" class="nav__link active">ホーム</a></li>
+          <li><a href="services.html" class="nav__link">サービス</a></li>
+          <li><a href="about.html" class="nav__link">会社概要</a></li>
+          <li><a href="message.html" class="nav__link">代表挨拶</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank" class="nav__link nav__link--cta">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <button class="nav__toggle" id="navToggle">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ヒーロー（シネマティック・ビデオ背景） -->
+<section class="hero">
+  <!-- 背景レイヤー -->
+  <div class="hero__background">
+    <div class="hero__video-fallback"></div>
+    <!-- ★ 動画を用意したら <source src="hero.mp4" type="video/mp4"> を追加してください -->
+    <video class="hero__video" autoplay muted loop playsinline poster="https://www.genspark.ai/api/files/s/sSfVev6F">
+      <!-- <source src="hero.mp4" type="video/mp4"> -->
+    </video>
+    <div class="hero__grid"></div>
+    <div class="hero__particles" id="heroParticles"></div>
+    <div class="hero__overlay"></div>
+  </div>
+
+  <!-- 左サイドライン装飾 -->
+  <div class="hero__sideline"></div>
+
+  <!-- コンテンツ -->
+  <div class="container hero__container">
+    <div class="hero__content">
+
+      <!-- バッジ -->
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        UPDATE HUMAN
+      </div>
+
+      <!-- メインコピー：行ごとにマスクからスライドアップ -->
+      <h1 class="hero__title">
+        <div class="hero__line-wrap">
+          <div class="hero__title-line1">人が変われば、</div>
+        </div>
+        <div class="hero__line-wrap--clip">
+          <div class="hero__title-line2">
+            <span class="hero__title-line2-inner">組織は変わる。</span>
+          </div>
+        </div>
+      </h1>
+
+      <!-- ディバイダー -->
+      <div class="hero__divider"></div>
+
+      <!-- サブコピー：2行に分けてずらして登場 -->
+      <p class="hero__description">
+        <span class="hero__sub-line"><span>可能性の格差をなくし、一人ひとりが挑戦できる社会へ。</span></span>
+        <span class="hero__sub-line"><span>研修・人事制度・伴走支援を通じて、人と組織の行動変容を実現します。</span></span>
+      </p>
+
+      <!-- CTAボタン：テキストの後に登場 -->
+      <div class="hero__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank" class="btn btn-primary btn-large">
+          無料相談を予約 <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="services.html" class="btn btn-ghost btn-large">サービスを見る</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- スクロールインジケーター -->
+  <div class="hero__scroll-hint">
+    <span>SCROLL</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ビジョン・ミッション -->
+<section class="section" style="background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%);">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Mission &amp; Vision</span>
+      <h2 class="section__title">私たちの未来と使命</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card glass-card reveal">
+        <div class="vm-card__icon"><i class="fas fa-bullseye"></i></div>
+        <h3 class="vm-card__title">MISSION</h3>
+        <h4 class="vm-card__subtitle">UPDATE HUMAN</h4>
+        <p class="vm-card__text">
+          人は本来、成長し、変化し続ける存在です。<br>
+          しかし現実には、忙しさや慣習、環境によって<br>
+          「動きたいのに、動けない」状態が<br class="br-sp">生まれています。
+        </p>
+        <p class="vm-card__description">
+          私たちの使命は、<br>
+          人に頑張らせることでも、無理に変えることでもありません。<br>
+          人が本来持っている可能性が、自然に更新され続ける環境と仕組みをつくること。<br>
+          それが、<br class="br-sp">UPDATE HUMANです。
+        </p>
+      </div>
+      <div class="vm-card glass-card reveal">
+        <div class="vm-card__icon"><i class="fas fa-eye"></i></div>
+        <h3 class="vm-card__title">VISION</h3>
+        <h4 class="vm-card__subtitle">人の可能性が、<br class="br-sp">動き出す瞬間を。</h4>
+        <p class="vm-card__text">
+          人が変わるのは、<br class="br-sp">誰かに言われたときでは<br class="br-sp">ありません。<br>
+          自分の中で「気づき」「納得し」「やってみよう」と思えた瞬間です。
+        </p>
+        <p class="vm-card__description">
+          私たちは、教えることや正解を与えることよりも、<br>
+          人が自ら一歩を踏み出してしまう"瞬間"をつくることに<br class="br-sp">こだわります。<br>
+          静かな問い、体験、<br class="br-sp">環境の変化。<br>
+          その積み重ねの先に、<br>
+          人の可能性は自然と動き出すと、私たちは信じています。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- サービス -->
+<section class="section" style="background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%);">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Our Services</span>
+      <h2 class="section__title">3つのサービス</h2>
+      <p class="section__description">人事領域を中心に企業の成長を総合的に支援します</p>
+    </div>
+    <div class="services__grid">
+      <div class="service-card reveal">
+        <div class="service-card__image">
+          <img src="https://sspark.genspark.ai/cfimages?u1=XIUgU%2BhSeWUVU2gnuRd72GiPp7IOUptAFN7LreCAbIsPUhMjAjjQOpitNmQphUgMWVOYxcqeCVQhjFLoY%2FVzKdmlqGnhDPfYWmy4CrVmEIMpCC8YJtEnPZE5aRcNQ6TDVPmGvuPuJs36iNan1kGMgPdFU1JxODctmInT&u2=BAi50wL2edpTxx9G&width=2560" alt="研修サービス">
+          <div class="service-card__badge">01</div>
+        </div>
+        <div class="service-card__content">
+          <h3 class="service-card__title">研修</h3>
+          <p class="service-card__description">心理学×体験を軸に、研修を「やっただけ」で終わらせない。気づきを行動に変え、現場で変化が起き続ける研修。</p>
+          <ul class="service-card__features">
+            <li><i class="fas fa-check"></i> 新入社員研修</li>
+            <li><i class="fas fa-check"></i> 管理者研修</li>
+            <li><i class="fas fa-check"></i> リーダーシップ研修</li>
+            <li><i class="fas fa-check"></i> コミュニケーション研修</li>
+          </ul>
+          <a href="services.html#training" class="service-card__link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__image">
+          <img src="https://sspark.genspark.ai/cfimages?u1=PwDlI%2F6k2wUi3ipg1yHnOQGp25LNmq%2FOejFTWdI15WmmtfGvzyMJlhK9h0qK0D8A6vpQ%2FX7YiS13A94esJB%2FXjXbboHdYbhc6b46dvtMahK123JidcFFPuRYIj%2B9pyjOYu%2FZ1R5E46gTpI6ERzgmcoID%2BiZhnYgIMQ%3D%3D&u2=YjM7oLHHzfpslH8T&width=2560" alt="人事制度構築">
+          <div class="service-card__badge">02</div>
+        </div>
+        <div class="service-card__content">
+          <h3 class="service-card__title">人事制度構築</h3>
+          <p class="service-card__description">人の心理と行動原理から設計する、"形だけにならない"人事制度。評価・育成・等級がつながり、人が動き続ける仕組みを。</p>
+          <ul class="service-card__features">
+            <li><i class="fas fa-check"></i> 評価制度設計</li>
+            <li><i class="fas fa-check"></i> 報酬制度設計</li>
+            <li><i class="fas fa-check"></i> キャリアパス設計</li>
+            <li><i class="fas fa-check"></i> 制度運用支援</li>
+          </ul>
+          <a href="services.html#hr-system" class="service-card__link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card__image">
+          <img src="https://sspark.genspark.ai/cfimages?u1=KJ0IandqKHTNLeaOv3JI%2BRVdHLB2Al6MH2P98D54eKl7mPTz0SVLh1laCSHF85c20TLBMBQUcZotjk4llle4XwReuneZaKl9wVuDIRh8LeYs8g%3D%3D&u2=KbJ09UvpW9YYvNCl&width=2560" alt="人事管理システム">
+          <div class="service-card__badge">03</div>
+        </div>
+        <div class="service-card__content">
+          <h3 class="service-card__title">人事管理システム</h3>
+          <p class="service-card__description">育成が止まる原因は"仕組み"にある。人を育てるための時間と判断を支える、現場で本当に使われる人事管理システムを構築。</p>
+          <ul class="service-card__features">
+            <li><i class="fas fa-check"></i> 勤怠管理システム</li>
+            <li><i class="fas fa-check"></i> タレントマネジメント<br class="br-sp">システム</li>
+            <li><i class="fas fa-check"></i> 評価システム</li>
+            <li><i class="fas fa-check"></i> サーベイシステム</li>
+          </ul>
+          <a href="services.html#hr-management" class="service-card__link">詳しく見る <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 導入企業の声 -->
+<section class="testimonials section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Client Voice</span>
+      <h2 class="section__title">導入企業の声</h2>
+      <p class="section__description">
+        多くの企業様に<br class="br-sp">ご支援させていただき、<br>
+        確かな成果を<br class="br-sp">実感していただいています
+      </p>
+    </div>
+    <div class="satisfaction-section reveal">
+      <h3 class="satisfaction-section__title">お客様満足度</h3>
+      <div class="pie-charts">
+        <div class="pie-chart">
+          <div class="pie-chart__header"><h4>研修内容の満足度</h4></div>
+          <div class="pie-chart__wrapper">
+            <canvas class="pie-chart__canvas" data-chart="training"></canvas>
+            <div class="pie-chart__center"><div class="pie-chart__percentage">98%</div></div>
+          </div>
+        </div>
+        <div class="pie-chart">
+          <div class="pie-chart__header"><h4>講師の対応満足度</h4></div>
+          <div class="pie-chart__wrapper">
+            <canvas class="pie-chart__canvas" data-chart="instructor"></canvas>
+            <div class="pie-chart__center"><div class="pie-chart__percentage">99%</div></div>
+          </div>
+        </div>
+        <div class="pie-chart">
+          <div class="pie-chart__header"><h4>リピート率</h4></div>
+          <div class="pie-chart__wrapper">
+            <canvas class="pie-chart__canvas" data-chart="reuse"></canvas>
+            <div class="pie-chart__center"><div class="pie-chart__percentage">98%</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonials__grid">
+      <div class="testimonial-card glass-card reveal">
+        <div class="testimonial-card__image">
+          <img src="https://www.genspark.ai/api/files/s/MrcorD4o" alt="株式会社ナーシング 研修風景" loading="lazy">
+        </div>
+        <h3 class="testimonial-card__title">見えない課題を教えてくれる唯一のフィードバック</h3>
+        <p class="testimonial-card__content">
+          社内だけでは絶対に気づけない課題や、本音の声をここで初めて知ることができました。
+          これまで見過ごしていた部分を具体的に指摘してもらい、改善のヒントが明確になりました。
+          だからこそ、安心して導入を決められましたし、実際に業務の質が上がったのを実感しています。
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__company">株式会社ナーシング 様</div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal">
+        <div class="testimonial-card__image">
+          <img src="https://www.genspark.ai/api/files/s/UmGoHacL" alt="カリツー株式会社 研修風景" loading="lazy">
+        </div>
+        <h3 class="testimonial-card__title">心理学のエッセンスもあり、自分・メンバーとも、真剣に向き合えた研修</h3>
+        <p class="testimonial-card__content">
+          単なる知識のインプットに留まらず、自分自身の考え方や在り方を深く見つめ直す時間になりました。
+          普段、なかなか意識できなかった"自分のクセ"や"無意識の判断"に気づくことができたことで、
+          チームメンバーへの接し方や受け止め方にも変化が生まれました。
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__company">カリツー株式会社 様</div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal">
+        <div class="testimonial-card__image">
+          <img src="https://www.genspark.ai/api/files/s/CyQVD254" alt="中日青葉学園 研修風景" loading="lazy">
+        </div>
+        <h3 class="testimonial-card__title">超参加型だからこそ、気づけた本当の自分と仲間の想い</h3>
+        <p class="testimonial-card__content">
+          これまでの研修とはまったく違う、超参加型の体験でした。
+          メンバーとの関係性にも変化があり、お互いの想いや価値観を共有する中で、
+          チームの一体感が確実に高まったと感じています。
+          学びながら心が動く、まさに体験として記憶に残る時間でした。
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__company">中日青葉学園 様</div>
+        </div>
+      </div>
+      <div class="testimonial-card glass-card reveal">
+        <div class="testimonial-card__image">
+          <img src="https://www.genspark.ai/api/files/s/mcEGYMM2" alt="株式会社セキュア 研修風景" loading="lazy">
+        </div>
+        <h3 class="testimonial-card__title">毎日が輝いている講師から、リアルな学びをもらった。人生そのものを学ぶ時間</h3>
+        <p class="testimonial-card__content">
+          講義の内容はもちろん素晴らしかったのですが、それ以上に講師の方の姿勢や生き方から学ぶことが多くありました。
+          一つひとつの言葉に説得力があり、どんなふうに日々を過ごしているのかまで想像できるほど、
+          毎日が充実していることが伝わってきました。
+        </p>
+        <div class="testimonial-card__author">
+          <div class="testimonial-card__company">株式会社セキュア 様</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 特徴セクション -->
+<section class="section" style="background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%);">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__label">Why Choose Us</span>
+      <h2 class="section__title">私たちのサービスが<br class="br-sp">選ばれる理由</h2>
+    </div>
+    <div class="features__grid grid grid-3">
+      <div class="feature-card glass-card reveal">
+        <div class="feature-card__icon"><i class="fas fa-running"></i></div>
+        <h3 class="feature-card__title">1. 行動が、変わる。</h3>
+        <p class="feature-card__description">
+          研修を「受けた」で終わらせません。
+          私たちの研修は、明日から現場で変えられる一つの行動を持ち帰る設計です。
+          だから、挨拶・声かけ・フィードバックなど、目に見える変化が起きます。
+        </p>
+      </div>
+      <div class="feature-card glass-card reveal">
+        <div class="feature-card__icon"><i class="fas fa-lightbulb"></i></div>
+        <h3 class="feature-card__title">2. 腹落ちするから、続く。</h3>
+        <p class="feature-card__description">
+          講義中心ではなく、体験と対話が中心。
+          自分で気づき、納得するから、やらされ感がありません。
+          一過性ではなく、行動が定着する研修です。
+        </p>
+      </div>
+      <div class="feature-card glass-card reveal">
+        <div class="feature-card__icon"><i class="fas fa-cogs"></i></div>
+        <h3 class="feature-card__title">3. 人を変えず、<br>構造を変える。</h3>
+        <p class="feature-card__description">
+          頑張れ、意識を変えろとは言いません。
+          私たちがつくるのは、人が自然と動き出す仕組み。
+          だから、若手から管理職まで、現場が静かに変わっていきます。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTAセクション -->
+<section class="section" style="background: linear-gradient(180deg, var(--neutral-50) 0%, var(--neutral-100) 100%);">
+  <div class="container">
+    <div class="cta__content glass-card reveal">
+      <h2 class="cta__title">
+        あなたの組織<br class="br-sp">の成長を、<br>
+        一緒に実現<br class="br-sp">しませんか
+      </h2>
+      <p class="cta__description">
+        まずはお気軽に<br class="br-sp">ご相談ください。<br class="br-sp">貴社の課題を<br class="br-sp">ヒアリングし、
+        <br>最適なソリューションを<br class="br-sp">ご提案いたします。
+      </p>
+      <div class="cta__actions">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank" class="btn btn-primary btn-large">
+          無料相談を<br class="br-sp">予約 <i class="fas fa-calendar-check"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- フッター -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <div class="footer__section footer__section--main">
+        <a href="index.html" class="footer__logo">
+          <img src="https://www.genspark.ai/api/files/s/SGOuXb6x" alt="ヒトイク" class="footer__logo-img">
+        </a>
+        <p class="footer__description">
+          人と組織を育てる。未来をつくる。<br>
+          あたたかく、革新的なアプローチで、<br>
+          企業の成長を支援します。
+        </p>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">サービス</h4>
+        <ul class="footer__list">
+          <li><a href="services.html#training">研修</a></li>
+          <li><a href="services.html#hr-system">人事制度構築</a></li>
+          <li><a href="services.html#hr-management">人事管理システム</a></li>
+        </ul>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">企業情報</h4>
+        <ul class="footer__list">
+          <li><a href="about.html">会社概要</a></li>
+          <li><a href="message.html">代表挨拶</a></li>
+          <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSeZlL0OIho6RS2qT0XHRUkNSlb5WwN1jwob5Ap6ArMgbOg42g/viewform" target="_blank">お問い合わせ</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div class="footer__section">
+        <h4 class="footer__title">お問い合わせ</h4>
+        <ul class="footer__contact">
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom"></div>
+  </div>
+</footer>
+
+<script>
+// ===== ナビゲーション =====
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+const navOverlay = document.createElement('div');
+navOverlay.className = 'nav-overlay';
+document.body.appendChild(navOverlay);
+
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 50);
+});
+
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    navOverlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+  });
+}
+
+navOverlay.addEventListener('click', () => {
+  navMenu.classList.remove('active');
+  navOverlay.classList.remove('active');
+  document.body.classList.remove('menu-open');
+});
+
+document.querySelectorAll('.nav__link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  });
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+    navMenu.classList.remove('active');
+    navOverlay.classList.remove('active');
+    document.body.classList.remove('menu-open');
+  }
+});
+
+// ===== スクロールアニメーション =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ===== スムーズスクロール =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#!') return;
+    const target = document.querySelector(href);
+    if (target) { e.preventDefault(); window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' }); }
+  });
+});
+
+// ===== パララックス（ビデオ対応） =====
+window.addEventListener('scroll', () => {
+  const scrolled = window.pageYOffset;
+  document.querySelectorAll('.hero__video').forEach(el => {
+    el.style.transform = `translate(-50%, calc(-50% + ${scrolled * 0.3}px))`;
+  });
+});
+
+// ===== パーティクル生成 =====
+(function() {
+  const container = document.getElementById('heroParticles');
+  if (!container) return;
+  const count = 18;
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'hero__particle';
+    const size = Math.random() * 8 + 3;
+    const left  = Math.random() * 100;
+    const delay = Math.random() * 12;
+    const dur   = Math.random() * 10 + 8;
+    p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${left}%;
+      animation-duration:${dur}s;
+      animation-delay:${delay}s;
+      opacity:0;
+    `;
+    container.appendChild(p);
+  }
+})();
+
+// ===== スクロールトップ =====
+const scrollTopBtn = document.createElement('button');
+scrollTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+scrollTopBtn.style.cssText = `position:fixed;bottom:30px;right:30px;width:50px;height:50px;background:linear-gradient(135deg,#F7FAF9 0%,#6FD6B5 35%,#4CBCC3 65%,#1F5A7A 100%);color:white;border:none;border-radius:50%;font-size:1.25rem;cursor:pointer;box-shadow:0 16px 48px rgba(10,26,47,0.16);opacity:0;transform:scale(0);transition:all 0.3s cubic-bezier(0.4,0,0.2,1);z-index:999;`;
+document.body.appendChild(scrollTopBtn);
+window.addEventListener('scroll', () => {
+  const show = window.scrollY > 500;
+  scrollTopBtn.style.opacity = show ? '1' : '0';
+  scrollTopBtn.style.transform = show ? 'scale(1)' : 'scale(0)';
+});
+scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ===== カスタムカーソル（デスクトップのみ） =====
+if (window.innerWidth > 768) {
+  const cursor = document.createElement('div');
+  cursor.style.cssText = `position:fixed;width:20px;height:20px;border:2px solid #6FD6B5;border-radius:50%;pointer-events:none;z-index:9999;transition:transform 0.2s ease,opacity 0.2s ease;opacity:0;`;
+  document.body.appendChild(cursor);
+  let mx=0,my=0,cx=0,cy=0;
+  document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cursor.style.opacity='1'; cursor.style.left=mx+'px'; cursor.style.top=my+'px'; });
+  document.addEventListener('mouseleave', () => cursor.style.opacity='0');
+  document.querySelectorAll('a,button,.service-card,.feature-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.style.transform='scale(2)');
+    el.addEventListener('mouseleave', () => cursor.style.transform='scale(1)');
+  });
+}
+
+// ===== ページロードアニメーション =====
+window.addEventListener('load', () => {
+  document.body.style.opacity='0';
+  document.body.style.transition='opacity 0.5s ease';
+  setTimeout(() => document.body.style.opacity='1', 100);
+});
+
+// ===== 円グラフ =====
+const pieChartData = {
+  training:   { data:[85,13,2],  colors:[{s:'#6FD6B5',e:'#4CBCC3'},{s:'#4CBCC3',e:'#1F5A7A'},{s:'#F7FAF9',e:'#6FD6B5'}] },
+  instructor: { data:[92,7,1],   colors:[{s:'#6FD6B5',e:'#4CBCC3'},{s:'#4CBCC3',e:'#1F5A7A'},{s:'#F7FAF9',e:'#6FD6B5'}] },
+  reuse:      { data:[88,10,2],  colors:[{s:'#6FD6B5',e:'#4CBCC3'},{s:'#4CBCC3',e:'#1F5A7A'},{s:'#F7FAF9',e:'#6FD6B5'}] }
+};
+
+function drawPieChart(canvas, data, colors) {
+  const ctx = canvas.getContext('2d');
+  const cx = canvas.width/2, cy = canvas.height/2;
+  const r = Math.min(cx,cy) - 20;
+  let angle = -Math.PI/2;
+  data.forEach((val,i) => {
+    const slice = (val/100)*2*Math.PI;
+    const grad = ctx.createLinearGradient(cx-r,cy-r,cx+r,cy+r);
+    grad.addColorStop(0, colors[i].s);
+    grad.addColorStop(1, colors[i].e);
+    ctx.beginPath();
+    ctx.arc(cx,cy,r,angle,angle+slice);
+    ctx.lineTo(cx,cy);
+    ctx.fillStyle = grad;
+    ctx.fill();
+    ctx.strokeStyle = 'rgba(255,255,255,0.3)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+    angle += slice;
+  });
+  ctx.beginPath();
+  ctx.arc(cx,cy,r*0.6,0,2*Math.PI);
+  ctx.fillStyle = '#FFFFFF';
+  ctx.fill();
+}
+
+const pieObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains('chart-drawn')) {
+      entry.target.classList.add('chart-drawn');
+      const type = entry.target.getAttribute('data-chart');
+      const canvas = entry.target;
+      canvas.width = 220; canvas.height = 220;
+      setTimeout(() => {
+        const info = pieChartData[type];
+        if (info) drawPieChart(canvas, info.data, info.colors);
+      }, 200);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.pie-chart__canvas').forEach(c => pieObserver.observe(c));
+
+// ===== ボタンリップル =====
+document.querySelectorAll('.btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    const r = this.getBoundingClientRect();
+    const size = Math.max(r.width,r.height);
+    const ripple = document.createElement('span');
+    ripple.style.cssText = `position:absolute;width:${size}px;height:${size}px;border-radius:50%;background:rgba(255,255,255,0.5);left:${e.clientX-r.left-size/2}px;top:${e.clientY-r.top-size/2}px;pointer-events:none;animation:ripple 0.6s ease-out;`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+});
+
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `@keyframes ripple{from{transform:scale(0);opacity:1;}to{transform:scale(4);opacity:0;}}`;
+document.head.appendChild(rippleStyle);
+</script>
+</body>
+</html>
