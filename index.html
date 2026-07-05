@@ -461,8 +461,8 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
 }
 .vm-card__title { font-size: 1.75rem; font-weight: 800; color: var(--primary); margin-bottom: var(--space-sm); letter-spacing: 0.05em; }
 .vm-card__subtitle { font-size: 1.25rem; font-weight: 600; color: var(--neutral-800); margin-bottom: var(--space-lg); }
-.vm-card__text { font-size: 1.125rem; line-height: 1.8; color: var(--neutral-700); margin-bottom: var(--space-md); font-weight: 500; }
-.vm-card__description { font-size: 0.9375rem; line-height: 1.7; color: var(--neutral-600); }
+.vm-card__text { font-size: clamp(0.95rem, 2vw, 1.125rem); line-height: 1.9; color: var(--neutral-700); margin-bottom: var(--space-md); font-weight: 500; }
+.vm-card__description { font-size: clamp(0.875rem, 1.8vw, 0.9375rem); line-height: 1.85; color: var(--neutral-600); }
 
 /* ===== サービスカード ===== */
 .services__grid { display: grid; grid-template-columns: repeat(3,1fr); gap: var(--space-xl); }
@@ -669,10 +669,10 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
     <div class="hero__content">
 
       <!-- バッジ -->
-      <!-- <div class="hero__badge">
+      <div class="hero__badge">
         <span class="hero__badge-dot"></span>
         UPDATE HUMAN
-      </div> -->
+      </div>
 
       <!-- メインコピー：行ごとにマスクからスライドアップ -->
       <h1 class="hero__title">
@@ -725,33 +725,15 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
         <div class="vm-card__icon"><i class="fas fa-bullseye"></i></div>
         <h3 class="vm-card__title">MISSION</h3>
         <h4 class="vm-card__subtitle">UPDATE HUMAN</h4>
-        <p class="vm-card__text">
-          人は本来、成長し、変化し続ける存在です。<br>
-          しかし現実には、忙しさや慣習、環境によって<br>
-          「動きたいのに、動けない」状態が<br class="br-sp">生まれています。
-        </p>
-        <p class="vm-card__description">
-          私たちの使命は、<br>
-          人に頑張らせることでも、無理に変えることでもありません。<br>
-          人が本来持っている可能性が、自然に更新され続ける環境と仕組みをつくること。<br>
-          それが、<br class="br-sp">UPDATE HUMANです。
-        </p>
+        <p class="vm-card__text">人は本来、成長し、変化し続ける存在です。しかし現実には、忙しさや慣習、環境によって「動きたいのに、動けない」状態が生まれています。</p>
+        <p class="vm-card__description">私たちの使命は、人に頑張らせることでも、無理に変えることでもありません。人が本来持っている可能性が、自然に更新され続ける環境と仕組みをつくること。それが、UPDATE HUMANです。</p>
       </div>
       <div class="vm-card glass-card reveal">
         <div class="vm-card__icon"><i class="fas fa-eye"></i></div>
         <h3 class="vm-card__title">VISION</h3>
-        <h4 class="vm-card__subtitle">人の可能性が、<br class="br-sp">動き出す瞬間を。</h4>
-        <p class="vm-card__text">
-          人が変わるのは、<br class="br-sp">誰かに言われたときでは<br class="br-sp">ありません。<br>
-          自分の中で「気づき」「納得し」「やってみよう」と思えた瞬間です。
-        </p>
-        <p class="vm-card__description">
-          私たちは、教えることや正解を与えることよりも、<br>
-          人が自ら一歩を踏み出してしまう"瞬間"をつくることに<br class="br-sp">こだわります。<br>
-          静かな問い、体験、<br class="br-sp">環境の変化。<br>
-          その積み重ねの先に、<br>
-          人の可能性は自然と動き出すと、私たちは信じています。
-        </p>
+        <h4 class="vm-card__subtitle">人の可能性が、動き出す瞬間を。</h4>
+        <p class="vm-card__text">人が変わるのは、誰かに言われたときではありません。自分の中で「気づき」「納得し」「やってみよう」と思えた瞬間です。</p>
+        <p class="vm-card__description">私たちは、教えることや正解を与えることよりも、人が自ら一歩を踏み出してしまう"瞬間"をつくることにこだわります。静かな問い、体験、環境の変化。その積み重ねの先に、人の可能性は自然と動き出すと、私たちは信じています。</p>
       </div>
     </div>
   </div>
