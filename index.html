@@ -608,6 +608,7 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
   .pie-charts { grid-template-columns: 1fr; gap: 2.5rem; }
   .pie-chart__wrapper { width: 200px; height: 200px; }
   .vm-grid { grid-template-columns: 1fr; }
+  .vm-card__subtitle { font-size: 1.15rem; line-height: 1.6; } /* SP用：自然な改行で読みやすく */
   .cta__content { padding: var(--space-xl); }
   .satisfaction-section { padding: var(--space-lg); }
 }
@@ -668,11 +669,7 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
   <div class="container hero__container">
     <div class="hero__content">
 
-      <!-- バッジ -->
-      <div class="hero__badge">
-        <span class="hero__badge-dot"></span>
-        UPDATE HUMAN
-      </div>
+      <!-- バッジ非表示 -->
 
       <!-- メインコピー：行ごとにマスクからスライドアップ -->
       <h1 class="hero__title">
@@ -731,7 +728,7 @@ p { font-size: clamp(1rem, 1.5vw, 1.125rem); line-height: 1.8; }
       <div class="vm-card glass-card reveal">
         <div class="vm-card__icon"><i class="fas fa-eye"></i></div>
         <h3 class="vm-card__title">VISION</h3>
-        <h4 class="vm-card__subtitle">人の可能性が、動き出す瞬間を。</h4>
+        <h4 class="vm-card__subtitle">人の可能性が、<br class="br-sp">動き出す瞬間を。</h4>
         <p class="vm-card__text">人が変わるのは、誰かに言われたときではありません。自分の中で「気づき」「納得し」「やってみよう」と思えた瞬間です。</p>
         <p class="vm-card__description">私たちは、教えることや正解を与えることよりも、人が自ら一歩を踏み出してしまう"瞬間"をつくることにこだわります。静かな問い、体験、環境の変化。その積み重ねの先に、人の可能性は自然と動き出すと、私たちは信じています。</p>
       </div>
