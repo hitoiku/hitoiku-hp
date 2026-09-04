@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ヒトイク | 採用して終わらせない。人が定着し、育つ組織へ。 - UPDATE HUMAN</title>
+<meta name="description" content="ヒトイクは、採用を入口に定着・育成・組織づくりまで伴走する採用コンサルティング会社です。採用コンサルティング・研修・人事制度構築を通じて企業の成長を支援します。">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 rx=%229%22 fill=%22%230E7C6E%22/><path d=%22M9 17l5 5 9-11%22 stroke=%22white%22 stroke-width=%223%22 fill=%22none%22 stroke-linecap=%22round%22 stroke-linejoin=%22round%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<noscript><style>
+.reveal{opacity:1 !important; transform:none !important;}
+.story-visual{display:none;}
+.story-scroll{height:auto !important; padding:60px 0;}
+.story-panels{position:static !important;}
+.story-panel{height:auto !important; position:static !important; padding:26px 8vw !important; justify-content:flex-start !important; text-align:left !important;}
+.story-panel-inner{opacity:1 !important; transform:none !important; max-width:640px !important;}
+.story-tags{justify-content:flex-start !important;}
+.story-skip{display:none;}
+</style></noscript>
+<link rel="stylesheet" href="css/story.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="images/logo.png" alt="ヒトイク" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="eager"><span class="logo-fallback" style="display:none;"><span class="mark"></span><span>ヒトイク<small>UPDATE HUMAN</small></span></span></a>
+    <nav class="main-nav">
+      <ul>
+        <li><a class="nav-link active" href="index.html">ホーム</a></li>
+        <li><a class="nav-link" href="about.html">私たちについて</a></li>
+        <li class="has-dropdown">
+          <a class="nav-link" href="recruiting.html">事業内容</a>
+          <ul class="dropdown">
+            <li><a href="recruiting.html">採用コンサルティング<span>採用の仕組みをつくる</span></a></li>
+            <li><a href="training.html">研修・人材育成<span>行動が変わる研修</span></a></li>
+            <li><a href="hr-system.html">人事制度・組織開発<span>定着と成長を支える制度</span></a></li>
+          </ul>
+        </li>
+        <li><a class="nav-link" href="works.html">支援実績</a></li>
+        <li><a class="nav-link" href="message.html">代表紹介</a></li>
+        <li><a class="nav-link" href="faq.html">よくある質問</a></li>
+        <li><a class="nav-link" href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="contact.html" class="btn btn-primary btn-sm">無料相談を予約</a>
+      <button class="nav-toggle" aria-label="メニュー"><span></span></button>
+    </div>
+  </div>
+</header>
+
+
+
+<div class="intro-splash" id="introSplash">
+  <div class="intro-stage intro-logo-stage" id="introLogoStage">
+    <img src="images/logo.png" alt="ヒトイク" class="intro-logo-img"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+    <div class="intro-logo-fallback" style="display:none;"><span class="mark"></span><span>ヒトイク</span></div>
+  </div>
+  <div class="intro-stage intro-tagline-stage" id="introTaglineStage">
+    <p class="intro-tagline"><span class="ch" style="transition-delay:0.000s">人</span><span class="ch" style="transition-delay:0.055s">の</span><span class="ch" style="transition-delay:0.110s">可</span><span class="ch" style="transition-delay:0.165s">能</span><span class="ch" style="transition-delay:0.220s">性</span><span class="ch" style="transition-delay:0.275s">が</span><span class="ch" style="transition-delay:0.330s">、</span><br><span class="ch" style="transition-delay:0.385s">動</span><span class="ch" style="transition-delay:0.440s">き</span><span class="ch" style="transition-delay:0.495s">出</span><span class="ch" style="transition-delay:0.550s">す</span><span class="ch" style="transition-delay:0.605s">瞬</span><span class="ch" style="transition-delay:0.660s">間</span><span class="ch" style="transition-delay:0.715s">を</span><span class="ch" style="transition-delay:0.770s">。</span></p>
+  </div>
+  <button class="intro-skip" id="introSkip" type="button">スキップ</button>
+</div>
+<script>
+(function () {
+  var splash = document.getElementById('introSplash');
+  if (!splash) return;
+  var logoStage = document.getElementById('introLogoStage');
+  var taglineStage = document.getElementById('introTaglineStage');
+  var skipBtn = document.getElementById('introSkip');
+  var done = false;
+  var timers = [];
+
+  function finish() {
+    if (done) return;
+    done = true;
+    timers.forEach(function (t) { clearTimeout(t); });
+    splash.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  document.body.style.overflow = 'hidden';
+  timers.push(setTimeout(function () { logoStage.classList.add('show'); }, 100));
+  timers.push(setTimeout(function () { logoStage.classList.remove('show'); }, 3000));
+  timers.push(setTimeout(function () { taglineStage.classList.add('show'); }, 3700));
+  timers.push(setTimeout(function () { taglineStage.classList.remove('show'); }, 7000));
+  timers.push(setTimeout(finish, 8600));
+
+  splash.addEventListener('click', finish);
+  skipBtn.addEventListener('click', function (e) { e.stopPropagation(); finish(); });
+})();
+</script>
+
+<section class="static-hero">
+  <div class="static-hero-media">
+    <img src="images/hero.jpg" alt="人の可能性が、動き出す瞬間を。"
+         width="1536" height="1024">
+  </div>
+  <div class="static-hero-text">
+    <h1>人の可能性が、動き出す瞬間を。</h1>
+    <p>採用して終わりではない。人が定着し、成長し、活躍するところまで。<br>ヒトイクは、採用から定着・活躍までを支援する採用コンサルティング会社です。</p>
+  </div>
+</section>
+
+
+<section id="after-story">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">About Hitoiku</span>
+      <h2>私たちについて</h2>
+      <p>ヒトイクは、採用・研修・人事制度という「人」に関わる領域を横断しながら、人と組織の可能性を育てる会社です。</p>
+      <p style="margin-top:20px;"><a href="about.html" class="more" style="color:var(--brand);font-weight:700;display:inline-flex;align-items:center;gap:6px;">私たちについてを詳しく見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </div>
+</section>
+
+<section class="pain-band">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Services</span>
+      <h2>何を支援しているか</h2>
+      <p>採用・育成・制度はそれぞれ独立したものではなく、つながって初めて機能します。</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-card-photo">
+          <img src="images/service-recruiting.jpg" alt="採用コンサルティング" loading="lazy">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></svg></div>
+        </div>
+        <div class="service-card-body">
+        <div class="tag">01 / RECRUITING</div>
+        <h3>採用コンサルティング</h3>
+        <p>採用代行ではなく"採用の仕組み"をつくる。戦略設計から実務、面接官育成、定着支援までを一気通貫でサポートします。</p>
+        <ul><li>採用戦略・要件設計</li><li>母集団形成・実務支援</li><li>面接官研修・定着支援</li></ul>
+        <a href="recruiting.html" class="more">詳しく見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-photo">
+          <img src="images/service-training.jpg" alt="研修・人材育成" loading="lazy">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a3 3 0 0 0-3 3 3 3 0 0 0-2 5 3.2 3.2 0 0 0 2 5.6V19a2 2 0 0 0 4 0V6a3 3 0 0 0-1-3z"/><path d="M15 3a3 3 0 0 1 3 3 3 3 0 0 1 2 5 3.2 3.2 0 0 1-2 5.6V19a2 2 0 0 1-4 0V6a3 3 0 0 1 1-3z"/></svg></div>
+        </div>
+        <div class="service-card-body">
+        <div class="tag">02 / TRAINING</div>
+        <h3>研修・人材育成</h3>
+        <p>心理学×体験学習で、行動変容を生み出す研修。「受けて終わり」にしない、現場で機能する育成をつくります。</p>
+        <ul><li>管理職研修・評価者研修</li><li>面接官研修</li><li>リーダーシップ／ロジカルシンキング</li></ul>
+        <a href="training.html" class="more">詳しく見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-card-photo">
+          <img src="images/service-hrsystem.jpg" alt="人事制度・組織開発" loading="lazy">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 13l9 5 9-5"/><path d="M3 18l9 5 9-5"/></svg></div>
+        </div>
+        <div class="service-card-body">
+        <div class="tag">03 / HR SYSTEM</div>
+        <h3>人事制度・組織開発</h3>
+        <p>採用した人が育ち、評価され、活躍し続けるための土台づくり。等級・評価・処遇制度を、現場で機能する形で設計します。</p>
+        <ul><li>等級・評価・処遇制度設計</li><li>評価者研修</li><li>制度運用支援</li></ul>
+        <a href="hr-system.html" class="more">詳しく見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head center reveal" style="margin-left:auto;margin-right:auto;">
+      <span class="eyebrow">Client Voice</span>
+      <h2>導入企業様の声</h2>
+    </div>
+    <div class="stat-showcase reveal">
+      <div class="stat-showcase-item">
+        <div class="stat-ring-wrap">
+          <svg class="stat-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="stat-ring-track"/><circle cx="60" cy="60" r="52" class="stat-ring-bar" style="--pct:98;"/></svg>
+          <div class="stat-showcase-num">98<span>%</span></div>
+        </div>
+        <div class="stat-showcase-label">研修内容の満足度</div>
+      </div>
+      <div class="stat-showcase-item">
+        <div class="stat-ring-wrap">
+          <svg class="stat-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="stat-ring-track"/><circle cx="60" cy="60" r="52" class="stat-ring-bar" style="--pct:99;"/></svg>
+          <div class="stat-showcase-num">99<span>%</span></div>
+        </div>
+        <div class="stat-showcase-label">講師対応の満足度</div>
+      </div>
+      <div class="stat-showcase-item">
+        <div class="stat-ring-wrap">
+          <svg class="stat-ring" viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="stat-ring-track"/><circle cx="60" cy="60" r="52" class="stat-ring-bar" style="--pct:98;"/></svg>
+          <div class="stat-showcase-num">98<span>%</span></div>
+        </div>
+        <div class="stat-showcase-label">リピート率</div>
+      </div>
+    </div>
+    <div class="case-grid mt-lg">
+      <div class="case-card reveal">
+        <img class="case-photo" src="images/case-nursing.jpg" alt="株式会社ナーシング様 研修風景" loading="lazy">
+        <div class="case-body">
+          <span class="badge">研修導入事例</span>
+          <h3>見えない課題を教えてくれる唯一のフィードバック</h3>
+          <p>社内だけでは気づけない課題や本音の声を初めて知ることができ、業務の質が上がったことを実感。</p>
+          <div class="org">株式会社ナーシング 様</div>
+        </div>
+      </div>
+      <div class="case-card reveal">
+        <img class="case-photo" src="images/case-karitsu.jpg" alt="カリツー株式会社様 研修風景" loading="lazy">
+        <div class="case-body">
+          <span class="badge">研修導入事例</span>
+          <h3>心理学のエッセンスで、自分・メンバーと真剣に向き合えた</h3>
+          <p>自分自身の考え方や在り方を見つめ直し、チームメンバーへの接し方にも変化が生まれた。</p>
+          <div class="org">カリツー株式会社 様</div>
+        </div>
+      </div>
+    </div>
+    <p class="text-center mt-lg"><a href="works.html" class="btn btn-outline">支援実績をもっと見る <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><img src="images/logo.png" alt="ヒトイク" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" loading="lazy"><span class="logo-fallback" style="display:none;"><span class="mark"></span><span>ヒトイク</span></span></a>
+        <p>採用を入口に、定着・育成・組織づくりまで伴走する。人と組織の可能性が動き出す瞬間をつくります。</p>
+      </div>
+      <div>
+        <h4>事業内容</h4>
+        <ul>
+          <li><a href="recruiting.html">採用コンサルティング</a></li>
+          <li><a href="training.html">研修・人材育成</a></li>
+          <li><a href="hr-system.html">人事制度・組織開発</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>会社情報</h4>
+        <ul>
+          <li><a href="about.html">私たちについて</a></li>
+          <li><a href="works.html">支援実績</a></li>
+          <li><a href="message.html">代表紹介</a></li>
+          <li><a href="faq.html">よくある質問</a></li>
+          <li><a href="privacy.html">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>お問い合わせ</h4>
+        <ul>
+          <li><a href="contact.html">お問い合わせフォーム</a></li>
+          <li><a href="mailto:hitoiku0110@gmail.com">hitoiku0110@gmail.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2024 Hitoiku. All rights reserved.</span>
+      <span>愛知県名古屋市中村区名駅4丁目24番5号 第2森ビル401 / Est. 2024.1.10</span>
+    </div>
+  </div>
+</footer>
+<script src="js/main.js"></script>
+</body>
+</html>
