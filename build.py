@@ -25,7 +25,7 @@ HEAD_TOP = """<!doctype html>
 .story-skip{{display:none;}}
 </style></noscript>
 </head>
-<body>
+<body{body_class}>
 """
 
 def header(active):
@@ -104,8 +104,9 @@ FOOTER = """<footer class="site-footer">
 </html>
 """
 
-def page(filename, title, desc, active, content, extra_css=None, extra_js=None):
-    head = HEAD_TOP.format(title=title, desc=desc)
+def page(filename, title, desc, active, content, extra_css=None, extra_js=None, body_class=None):
+    bc = f' class="{body_class}"' if body_class else ""
+    head = HEAD_TOP.format(title=title, desc=desc, body_class=bc)
     if extra_css:
         head = head.replace("</head>", f'<link rel="stylesheet" href="{extra_css}">\n</head>')
     footer = FOOTER

@@ -634,3 +634,103 @@ a svg, p svg, span svg, .more svg{ width:15px; height:15px; flex-shrink:0; verti
 }
 .soft-contact-line a{ color: var(--brand); font-weight:700; }
 .soft-contact-line a:hover{ text-decoration:underline; }
+
+/* ============================================================
+   LayerX-inspired treatment: tracked headlines + numbered list
+   ============================================================ */
+.tracked{ letter-spacing: .14em; }
+.lx-hero{
+  min-height: 92vh; display:flex; flex-direction:column; justify-content:center;
+  background: #FFFFFF; padding: 140px 0 80px; position:relative;
+}
+.lx-hero-eyebrow{
+  font-family: var(--ff-en); font-size:12px; letter-spacing:.3em; color: var(--ink-faint);
+  font-weight:700; margin-bottom:32px; text-transform:uppercase;
+}
+.lx-hero h1{
+  font-size: clamp(30px, 4.4vw, 58px); line-height:1.7; font-weight:700; color: var(--ink);
+  letter-spacing:.1em; margin:0 0 40px;
+}
+.lx-hero p.lx-sub{
+  font-size:15px; line-height:2.2; color: var(--ink-soft); letter-spacing:.06em;
+  max-width:640px; margin:0 0 44px;
+}
+.lx-hero .more{ font-weight:700; color: var(--brand); display:inline-flex; align-items:center; gap:8px; font-size:14.5px; letter-spacing:.06em; }
+@media (max-width: 720px){
+  .lx-hero{ padding:110px 0 60px; min-height:auto; }
+  .lx-hero h1{ letter-spacing:.04em; }
+}
+
+.lx-section-label{
+  font-family: var(--ff-en); font-size:12px; letter-spacing:.3em; color: var(--ink-faint);
+  font-weight:700; text-transform:uppercase; margin-bottom:20px;
+}
+.lx-section-title{
+  font-size: clamp(24px,3vw,34px); letter-spacing:.08em; margin-bottom:56px; font-weight:700;
+}
+
+.lx-list{ border-top:1px solid var(--line); }
+.lx-list-item{
+  display:grid; grid-template-columns: 90px 1fr auto; align-items:center; gap:32px;
+  padding:40px 0; border-bottom:1px solid var(--line); text-decoration:none;
+  transition: opacity .2s ease;
+}
+.lx-list-item:hover{ opacity:.6; }
+.lx-list-num{ font-family: var(--ff-en); font-size:14px; color: var(--ink-faint); letter-spacing:.1em; }
+.lx-list-body h3{ font-size: clamp(18px,2vw,23px); letter-spacing:.05em; margin-bottom:10px; }
+.lx-list-body p{ font-size:14px; color: var(--ink-soft); letter-spacing:.02em; margin:0; max-width:560px; }
+.lx-list-arrow{ width:36px; height:36px; border-radius:50%; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; color: var(--ink-faint); flex-shrink:0; transition: all .2s ease; }
+.lx-list-item:hover .lx-list-arrow{ background: var(--brand); border-color: var(--brand); color:#fff; }
+.lx-list-arrow svg{ width:16px; height:16px; }
+@media (max-width: 640px){
+  .lx-list-item{ grid-template-columns: 50px 1fr; gap:16px; padding:28px 0; }
+  .lx-list-arrow{ display:none; }
+}
+
+/* ============================================================
+   lx-mode: scoped monochrome, LayerX-adjacent restyle.
+   Only ever applied via <body class="lx-mode"> (index.html), so
+   nothing here touches any other page's branding.
+   ============================================================ */
+.lx-mode .site-header{ background:#fff; backdrop-filter:none; }
+.lx-mode .nav-link{ letter-spacing:.03em; font-weight:600; }
+.lx-mode .nav-link:hover, .lx-mode .nav-link.active{
+  background:transparent; color:var(--ink); text-decoration:underline; text-underline-offset:6px;
+}
+.lx-mode .header-cta .btn-primary{
+  background:transparent; color:var(--ink); border:1px solid var(--ink); border-radius:2px;
+  box-shadow:none; font-weight:600; letter-spacing:.04em;
+}
+.lx-mode .header-cta .btn-primary:hover{ background:var(--ink); color:#fff; transform:none; box-shadow:none; }
+
+.lx-mode .btn{ border-radius:2px; box-shadow:none; }
+.lx-mode .btn-primary{ background:var(--ink); box-shadow:none; }
+.lx-mode .btn-primary:hover{ background:#000; transform:none; box-shadow:none; }
+.lx-mode .btn-outline:hover{ border-color:var(--ink); color:var(--ink); }
+
+.lx-mode .eyebrow{ color: var(--ink-faint); letter-spacing:.3em; }
+.lx-mode .eyebrow::before{ display:none; }
+.lx-mode .lx-section-label{ color: var(--ink-faint); }
+
+.lx-mode .static-hero-text h1{ letter-spacing:.22em; font-weight:700; }
+.lx-mode .static-hero-media img{ filter: grayscale(.25) contrast(1.04); }
+
+.lx-mode .pain-band{ background:#F6F6F6; }
+.lx-mode .lx-list{ border-top-color:#E3E3E3; }
+.lx-mode .lx-list-item{ border-bottom-color:#E3E3E3; }
+.lx-mode .lx-list-arrow{ border-radius:50%; border-color:#D8D8D8; }
+.lx-mode .lx-list-item:hover .lx-list-arrow{ background:var(--ink); border-color:var(--ink); }
+
+.lx-mode .stat-ring-bar{ stroke: var(--ink); }
+.lx-mode .stat-showcase-num{ color: var(--ink); }
+
+.lx-mode .case-card{ border-radius:2px; border-color:#E3E3E3; }
+.lx-mode .case-card .badge{ background:transparent; border:1px solid #D8D8D8; color: var(--ink-soft); border-radius:2px; }
+
+.lx-mode .more{ color: var(--ink) !important; text-decoration:underline; text-underline-offset:4px; font-weight:600; }
+.lx-mode .more svg{ display:none; }
+
+.lx-mode .site-footer{ background:#0A0A0B; }
+@media (max-width: 720px){
+  .lx-mode .static-hero-text h1{ letter-spacing:.08em; }
+}

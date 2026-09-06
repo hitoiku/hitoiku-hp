@@ -103,11 +103,6 @@ TAGLINE_HTML = _typewriter_lines(["人の可能性が、", "動き出す瞬間�
 
 INTRO_HTML = f"""
 <div class="intro-splash" id="introSplash">
-  <div class="intro-stage intro-logo-stage" id="introLogoStage">
-    <img src="{LOGO_URL}" alt="ヒトイク" class="intro-logo-img"
-         onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
-    <div class="intro-logo-fallback" style="display:none;"><span class="mark"></span><span>ヒトイク</span></div>
-  </div>
   <div class="intro-stage intro-tagline-stage" id="introTaglineStage">
     <p class="intro-tagline">{TAGLINE_HTML}</p>
   </div>
@@ -117,7 +112,6 @@ INTRO_HTML = f"""
 (function () {{
   var splash = document.getElementById('introSplash');
   if (!splash) return;
-  var logoStage = document.getElementById('introLogoStage');
   var taglineStage = document.getElementById('introTaglineStage');
   var skipBtn = document.getElementById('introSkip');
   var done = false;
@@ -132,11 +126,9 @@ INTRO_HTML = f"""
   }}
 
   document.body.style.overflow = 'hidden';
-  timers.push(setTimeout(function () {{ logoStage.classList.add('show'); }}, 100));
-  timers.push(setTimeout(function () {{ logoStage.classList.remove('show'); }}, 3000));
-  timers.push(setTimeout(function () {{ taglineStage.classList.add('show'); }}, 3700));
-  timers.push(setTimeout(function () {{ taglineStage.classList.remove('show'); }}, 7000));
-  timers.push(setTimeout(finish, 8600));
+  timers.push(setTimeout(function () {{ taglineStage.classList.add('show'); }}, 200));
+  timers.push(setTimeout(function () {{ taglineStage.classList.remove('show'); }}, 3900));
+  timers.push(setTimeout(finish, 5400));
 
   splash.addEventListener('click', finish);
   skipBtn.addEventListener('click', function (e) {{ e.stopPropagation(); finish(); }});
